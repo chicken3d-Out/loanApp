@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC497594-6D18-492E-9F0C-664FEF86ED90}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Loan_Management_App</RootNamespace>
+    <AssemblyName>Loan Management App</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddBorrower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBorrower.Designer.cs">
+      <DependentUpon>AddBorrower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apply Loan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apply Loan.Designer.cs">
+      <DependentUpon>Apply Loan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="borrower.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="borrower.Designer.cs">
+      <DependentUpon>borrower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dailyPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dailyPayment.Designer.cs">
+      <DependentUpon>dailyPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loans.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="loans.Designer.cs">
+      <DependentUpon>loans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="payback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="payback.Designer.cs">
+      <DependentUpon>payback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paylogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="paylogs.Designer.cs">
+      <DependentUpon>paylogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="statistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="statistics.Designer.cs">
+      <DependentUpon>statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="totalBorrowed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="totalBorrowed.Designer.cs">
+      <DependentUpon>totalBorrowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="totalPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="totalPayment.Designer.cs">
+      <DependentUpon>totalPayment.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddBorrower.resx">
+      <DependentUpon>AddBorrower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apply Loan.resx">
+      <DependentUpon>Apply Loan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="borrower.resx">
+      <DependentUpon>borrower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dailyPayment.resx">
+      <DependentUpon>dailyPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loans.resx">
+      <DependentUpon>loans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="payback.resx">
+      <DependentUpon>payback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paylogs.resx">
+      <DependentUpon>paylogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="statistics.resx">
+      <DependentUpon>statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="totalBorrowed.resx">
+      <DependentUpon>totalBorrowed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="totalPayment.resx">
+      <DependentUpon>totalPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
