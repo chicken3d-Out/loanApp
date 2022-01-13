@@ -28,18 +28,43 @@ namespace Loan_Management_App
             {
                 con.Open();
                 //Get Number of Customers
-                string noOfCustomers = "SELECT sum(payment) as 'totalPayment' from paylogs;";
+                string noOfCustomers = "SELECT IFNULL(SUM(payment), 0) as 'totalPayment' from paylogs;";
                 cmd = new MySqlCommand(noOfCustomers, con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read() == true)
                 {
                     lblTotalPayment.Text = dr.GetInt32("totalPayment").ToString();
                 }
+                con.Close();
             }
             catch
             {
-                MessageBox.Show("Query Not Executable!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Total Payment Query Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                con.Close();
             }
+        }
+
+        private void lblTotalPayment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                //Get Number of Customers
+                string noOfCustomers = "SELECT IFNULL(SUM(payment), 0) as 'totalPayment' from paylogs;";
+                cmd = new MySqlCommand(noOfCustomers, con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read() == true)
+                {
+                    lblTotalPayment.Text = dr.GetInt32("totalPayment").ToString();
+                }
+                con.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Total Payment Query Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                con.Close();
+            }
+
         }
     }
 }

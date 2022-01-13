@@ -34,6 +34,7 @@ namespace Loan_Management_App
         {
             try
             {
+                //NOTE THAT TXTBORROWERID IS ACTUALLY LOANID//   I DIDN'T CHANGE IT BECAUSE IT WILL CAUSE SOME ERROR IN VISUAL STUDIO
                 if (txtBorrowerID.Text == "")
                 {
                     MessageBox.Show("Don't Leave the BorrowerID Fields Empty", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -41,15 +42,15 @@ namespace Loan_Management_App
                 else
                 {
                     con.Open();
-                    string checkBorrowerExist = "SELECT borrowerID from loans where borrowerID = "+ txtBorrowerID.Text +";";
-                    cmd = new MySqlCommand(checkBorrowerExist, con);
+                    string checkLoanExist = "SELECT loanID from loans where loanID = "+ txtBorrowerID.Text +";";
+                    cmd = new MySqlCommand(checkLoanExist, con);
 
                     MySqlDataReader dr = cmd.ExecuteReader();
 
                     if (dr.Read())
                     {
                         dr.Close();
-                        string add = "SELECT dailyPayment,daysRemaining, balance from loans where borrowerID = " + txtBorrowerID.Text + ";";
+                        string add = "SELECT dailyPayment,daysRemaining, balance from loans where loanID = " + txtBorrowerID.Text + ";";
                         cmd = new MySqlCommand(add, con);
                         MySqlDataReader dp = cmd.ExecuteReader();
                         if (dp.Read())
@@ -62,7 +63,7 @@ namespace Loan_Management_App
                     }
                     else
                     {
-                        MessageBox.Show("Borrower Dont Exist", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Loan Dont Exist", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtBorrowerID.Text = "";
                         txtAmount.Text = "";
                         con.Close();
@@ -71,7 +72,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Query Not Executable", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Pay Back Error", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -92,31 +93,44 @@ namespace Loan_Management_App
             else
             {
                 con.Open();
-                string updateLoansDetails = "UPDATE loans SET daysRemaining= " + (currentRemainingDays - 1) + ", balance = " + (currentBalance - Convert.ToInt32(txtAmount.Text)) + " where borrowerID = " + txtBorrowerID.Text + ";";
-                cmd = new MySqlCommand(updateLoansDetails, con);
-                int success = cmd.ExecuteNonQuery();
+                string checkBorrowerExist = "SELECT loanID from loans where loanID = " + txtBorrowerID.Text + ";";
+                cmd = new MySqlCommand(checkBorrowerExist, con);
 
-                if (success > 0)
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
                 {
-                    MessageBox.Show("Payment Successfull!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    string getUpdatedData = "SELECT daysRemaining, balance from loans where borrowerID = " + txtBorrowerID.Text + ";";
-                    cmd = new MySqlCommand(getUpdatedData, con);
-                    MySqlDataReader dp = cmd.ExecuteReader();
-                    if (dp.Read())
+                    dr.Close();
+                    string updateLoansDetails = "UPDATE loans SET daysRemaining= " + (currentRemainingDays - 1) + ", balance = " + (currentBalance - Convert.ToInt32(txtAmount.Text)) + " where loanID = " + txtBorrowerID.Text + ";";
+                    cmd = new MySqlCommand(updateLoansDetails, con);
+                    int success = cmd.ExecuteNonQuery();
+
+                    if (success > 0)
                     {
-                        lblRemainingBalance.Text = dp.GetInt32("balance").ToString();
-                        lblRemainingDays.Text = dp.GetInt32("daysRemaining").ToString();
-                        txtBorrowerID.Text = "";
-                        txtAmount.Text = "";
+                        MessageBox.Show("Payment Successfull!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string getUpdatedData = "SELECT daysRemaining, balance from loans where loanID = " + txtBorrowerID.Text + ";";
+                        cmd = new MySqlCommand(getUpdatedData, con);
+                        MySqlDataReader dp = cmd.ExecuteReader();
+                        if (dp.Read())
+                        {
+                            lblRemainingBalance.Text = dp.GetInt32("balance").ToString();
+                            lblRemainingDays.Text = dp.GetInt32("daysRemaining").ToString();
+                            txtBorrowerID.Text = "";
+                            txtAmount.Text = "";
+                        }
+                        con.Close();
                     }
-                    con.Close();
-                }
-                else
+                    else
+                    {
+                        MessageBox.Show("Payment Failed!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.Close();
+                    }
+                }else
                 {
-                    MessageBox.Show("Payment Failed!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Loan Dont Exist!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     con.Close();
-
                 }
+                
             }   
         }
 

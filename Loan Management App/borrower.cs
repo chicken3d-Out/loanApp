@@ -149,6 +149,46 @@ namespace Loan_Management_App
             AddBorrower addBorrower = new AddBorrower();
             addBorrower.Show();
             addBorrower.txtFIrstname.Focus();
+            //Change the button text For Adding Borrower to "Register"
+            addBorrower.btnRegister.Text = "Register";
+            //Change the EditMode into false
+            addBorrower.lblEditMode.Text = "FALSE";
+
+        }
+
+        private void dataGridViewBorrower_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewBorrower.ClearSelection();
+        }
+
+        private void dataGridViewBorrower_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //instantiate the value of dgv to edit form
+            AddBorrower editBorrower = new AddBorrower();
+            DataGridViewRow getData = dataGridViewBorrower.Rows[indexRow];
+
+            //instantiate the value
+            editBorrower.borrowerID.Text = Convert.ToString(getData.Cells[0].Value);
+            editBorrower.txtFIrstname.Text = Convert.ToString(getData.Cells[1].Value);
+            editBorrower.txtLastname.Text = Convert.ToString(getData.Cells[2].Value);
+            editBorrower.txtMiddlename.Text = Convert.ToString(getData.Cells[3].Value);
+            editBorrower.txtAge.Text = Convert.ToString(getData.Cells[4].Value);
+            editBorrower.txtGender.Text = Convert.ToString(getData.Cells[5].Value);
+            editBorrower.txtStreet.Text = Convert.ToString(getData.Cells[6].Value);
+            editBorrower.txtBarangay.Text = Convert.ToString(getData.Cells[7].Value);
+            editBorrower.txtMunicipality.Text = Convert.ToString(getData.Cells[8].Value);
+            editBorrower.txtProvince.Text = Convert.ToString(getData.Cells[9].Value);
+            editBorrower.txtZipCode.Text = Convert.ToString(getData.Cells[10].Value);
+            editBorrower.txtPhoneNo.Text = Convert.ToString(getData.Cells[11].Value);
+            editBorrower.txtOccupation.Text = Convert.ToString(getData.Cells[12].Value);
+
+            //Edit Mode
+            editBorrower.lblUpperLabel.Text = "Update Borrower Details";
+            editBorrower.lblEditMode.Text = "TRUE";
+            editBorrower.btnRegister.Text = "Save";
+
+            //shows the edit form
+            editBorrower.ShowDialog();
         }
     }
 }

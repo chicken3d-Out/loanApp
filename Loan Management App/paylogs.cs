@@ -147,5 +147,10 @@ namespace Loan_Management_App
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
         }
+
+        private void dataGridViewPayLogs_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewPayLogs.ClearSelection();
+        }
     }
 }

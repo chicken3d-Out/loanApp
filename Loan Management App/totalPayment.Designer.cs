@@ -58,6 +58,7 @@ namespace Loan_Management_App
             this.lblTotalPayment.Size = new System.Drawing.Size(86, 90);
             this.lblTotalPayment.TabIndex = 19;
             this.lblTotalPayment.Text = "0";
+            this.lblTotalPayment.Click += new System.EventHandler(this.lblTotalPayment_Click);
             // 
             // label8
             // 

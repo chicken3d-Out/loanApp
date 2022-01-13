@@ -58,6 +58,7 @@ namespace Loan_Management_App
             this.lblTotalBorrowed.Size = new System.Drawing.Size(86, 90);
             this.lblTotalBorrowed.TabIndex = 19;
             this.lblTotalBorrowed.Text = "0";
+            this.lblTotalBorrowed.Click += new System.EventHandler(this.lblTotalBorrowed_Click);
             // 
             // label9
             // 

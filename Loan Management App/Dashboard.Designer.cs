@@ -29,6 +29,7 @@ namespace Loan_Management_App
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btnPayLogs = new FontAwesome.Sharp.IconButton();
@@ -58,6 +59,7 @@ namespace Loan_Management_App
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statistics1 = new Loan_Management_App.statistics();
             this.paylogs1 = new Loan_Management_App.paylogs();
             this.payback1 = new Loan_Management_App.payback();
@@ -353,13 +355,15 @@ namespace Loan_Management_App
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(477, 97);
+            this.panel6.Size = new System.Drawing.Size(554, 97);
             this.panel6.TabIndex = 1;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
+            this.lblDate.BackColor = System.Drawing.Color.White;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.lblDate.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblDate.Location = new System.Drawing.Point(11, 29);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(127, 46);
@@ -386,7 +390,7 @@ namespace Loan_Management_App
             this.iconPictureBox3.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox3.IconSize = 77;
-            this.iconPictureBox3.Location = new System.Drawing.Point(383, 16);
+            this.iconPictureBox3.Location = new System.Drawing.Point(466, 16);
             this.iconPictureBox3.Name = "iconPictureBox3";
             this.iconPictureBox3.Size = new System.Drawing.Size(85, 77);
             this.iconPictureBox3.TabIndex = 2;
@@ -456,7 +460,7 @@ namespace Loan_Management_App
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Gray;
-            this.panel7.Location = new System.Drawing.Point(495, 0);
+            this.panel7.Location = new System.Drawing.Point(560, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(16, 98);
             this.panel7.TabIndex = 3;
@@ -464,8 +468,9 @@ namespace Loan_Management_App
             // lblTime
             // 
             this.lblTime.AutoSize = true;
+            this.lblTime.BackColor = System.Drawing.Color.White;
             this.lblTime.Font = new System.Drawing.Font("Courier New", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.Black;
+            this.lblTime.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblTime.Location = new System.Drawing.Point(610, 29);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(204, 49);
@@ -485,6 +490,10 @@ namespace Loan_Management_App
             this.iconPictureBox2.Size = new System.Drawing.Size(91, 78);
             this.iconPictureBox2.TabIndex = 2;
             this.iconPictureBox2.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // statistics1
             // 
@@ -539,6 +548,7 @@ namespace Loan_Management_App
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -592,5 +602,6 @@ namespace Loan_Management_App
         private paylogs paylogs1;
         private statistics statistics1;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

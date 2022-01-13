@@ -47,7 +47,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Query Not Executable!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Login Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -57,6 +57,11 @@ namespace Loan_Management_App
             {
                 Application.Exit();
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            txtUsername.Focus();
         }
     }
 }

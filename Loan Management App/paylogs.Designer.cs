@@ -90,6 +90,7 @@ namespace Loan_Management_App
             this.dataGridViewPayLogs.Size = new System.Drawing.Size(1009, 508);
             this.dataGridViewPayLogs.TabIndex = 7;
             this.dataGridViewPayLogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPayLogs_CellClick);
+            this.dataGridViewPayLogs.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewPayLogs_DataBindingComplete);
             // 
             // panel6
             // 

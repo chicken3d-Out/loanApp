@@ -331,9 +331,9 @@ namespace Loan_Management_App
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(37, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 32);
+            this.label2.Size = new System.Drawing.Size(307, 32);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Enter Borrower ID :";
+            this.label2.Text = "Enter Loan Transaction ID :";
             // 
             // panel3
             // 

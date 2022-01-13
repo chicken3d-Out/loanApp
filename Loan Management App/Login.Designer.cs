@@ -189,7 +189,7 @@ namespace Loan_Management_App
             this.btn_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(110, 41);
-            this.btn_login.TabIndex = 10;
+            this.btn_login.TabIndex = 3;
             this.btn_login.Text = "LOGIN";
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
@@ -213,8 +213,9 @@ namespace Loan_Management_App
             this.txtPassword.Location = new System.Drawing.Point(633, 263);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(243, 40);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.TabIndex = 2;
             // 
             // txtUsername
             // 
@@ -225,7 +226,7 @@ namespace Loan_Management_App
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(243, 40);
-            this.txtUsername.TabIndex = 8;
+            this.txtUsername.TabIndex = 1;
             // 
             // panel1
             // 
@@ -260,6 +261,7 @@ namespace Loan_Management_App
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.password)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.username)).EndInit();

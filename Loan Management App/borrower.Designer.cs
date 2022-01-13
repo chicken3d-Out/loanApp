@@ -206,6 +206,8 @@ namespace Loan_Management_App
             this.dataGridViewBorrower.Size = new System.Drawing.Size(1009, 508);
             this.dataGridViewBorrower.TabIndex = 3;
             this.dataGridViewBorrower.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBorrower_CellClick);
+            this.dataGridViewBorrower.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBorrower_CellDoubleClick);
+            this.dataGridViewBorrower.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewBorrower_DataBindingComplete);
             // 
             // borrower
             // 

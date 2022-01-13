@@ -99,6 +99,7 @@ namespace Loan_Management_App
             this.lblCustomers.Size = new System.Drawing.Size(86, 90);
             this.lblCustomers.TabIndex = 19;
             this.lblCustomers.Text = "0";
+            this.lblCustomers.Click += new System.EventHandler(this.lblCustomers_Click);
             // 
             // label1
             // 
