@@ -40,6 +40,8 @@ namespace Loan_Management_App
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnExportExcel = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPayLogs)).BeginInit();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
@@ -62,11 +64,11 @@ namespace Loan_Management_App
             this.dataGridViewPayLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewPayLogs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewPayLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewPayLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -141,7 +143,7 @@ namespace Loan_Management_App
             this.searchBy.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.searchBy.FormattingEnabled = true;
             this.searchBy.Items.AddRange(new object[] {
-            "BorrowerID"});
+            "LoanID"});
             this.searchBy.Location = new System.Drawing.Point(656, 8);
             this.searchBy.Name = "searchBy";
             this.searchBy.Size = new System.Drawing.Size(121, 36);
@@ -190,10 +192,27 @@ namespace Loan_Management_App
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.BackColor = System.Drawing.Color.Orange;
+            this.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportExcel.FlatAppearance.BorderSize = 0;
+            this.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.8F, System.Drawing.FontStyle.Bold);
+            this.btnExportExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.btnExportExcel.Location = new System.Drawing.Point(833, 563);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(135, 40);
+            this.btnExportExcel.TabIndex = 8;
+            this.btnExportExcel.Text = "Export to Excel";
+            this.btnExportExcel.UseVisualStyleBackColor = false;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // paylogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.dataGridViewPayLogs);
             this.Controls.Add(this.panel6);
             this.Name = "paylogs";
@@ -216,5 +235,7 @@ namespace Loan_Management_App
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnExportExcel;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

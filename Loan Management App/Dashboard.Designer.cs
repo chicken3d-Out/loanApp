@@ -78,6 +78,7 @@ namespace Loan_Management_App
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.sidePanel);
             this.panel1.Controls.Add(this.btnPayLogs);
             this.panel1.Controls.Add(this.btnPayback);
@@ -102,13 +103,14 @@ namespace Loan_Management_App
             // 
             // btnPayLogs
             // 
+            this.btnPayLogs.BackColor = System.Drawing.SystemColors.Control;
             this.btnPayLogs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPayLogs.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPayLogs.FlatAppearance.BorderSize = 0;
             this.btnPayLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayLogs.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.btnPayLogs.IconChar = FontAwesome.Sharp.IconChar.Clipboard;
-            this.btnPayLogs.IconColor = System.Drawing.Color.Black;
+            this.btnPayLogs.IconColor = System.Drawing.Color.DarkGreen;
             this.btnPayLogs.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPayLogs.IconSize = 45;
             this.btnPayLogs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -119,18 +121,19 @@ namespace Loan_Management_App
             this.btnPayLogs.Size = new System.Drawing.Size(348, 75);
             this.btnPayLogs.TabIndex = 6;
             this.btnPayLogs.Text = "Pay Back Logs";
-            this.btnPayLogs.UseVisualStyleBackColor = true;
+            this.btnPayLogs.UseVisualStyleBackColor = false;
             this.btnPayLogs.Click += new System.EventHandler(this.btnPayLogs_Click);
             // 
             // btnPayback
             // 
+            this.btnPayback.BackColor = System.Drawing.SystemColors.Control;
             this.btnPayback.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPayback.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPayback.FlatAppearance.BorderSize = 0;
             this.btnPayback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayback.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.btnPayback.IconChar = FontAwesome.Sharp.IconChar.Coins;
-            this.btnPayback.IconColor = System.Drawing.Color.Black;
+            this.btnPayback.IconColor = System.Drawing.Color.DarkGreen;
             this.btnPayback.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPayback.IconSize = 45;
             this.btnPayback.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,18 +144,19 @@ namespace Loan_Management_App
             this.btnPayback.Size = new System.Drawing.Size(348, 75);
             this.btnPayback.TabIndex = 5;
             this.btnPayback.Text = "Pay Back";
-            this.btnPayback.UseVisualStyleBackColor = true;
+            this.btnPayback.UseVisualStyleBackColor = false;
             this.btnPayback.Click += new System.EventHandler(this.btnPayback_Click);
             // 
             // btnLoans
             // 
+            this.btnLoans.BackColor = System.Drawing.SystemColors.Control;
             this.btnLoans.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLoans.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLoans.FlatAppearance.BorderSize = 0;
             this.btnLoans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoans.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.btnLoans.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
-            this.btnLoans.IconColor = System.Drawing.Color.Black;
+            this.btnLoans.IconColor = System.Drawing.Color.DarkGreen;
             this.btnLoans.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLoans.IconSize = 45;
             this.btnLoans.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,18 +167,19 @@ namespace Loan_Management_App
             this.btnLoans.Size = new System.Drawing.Size(348, 75);
             this.btnLoans.TabIndex = 4;
             this.btnLoans.Text = "Loans";
-            this.btnLoans.UseVisualStyleBackColor = true;
+            this.btnLoans.UseVisualStyleBackColor = false;
             this.btnLoans.Click += new System.EventHandler(this.btnLoans_Click);
             // 
             // btnBorrower
             // 
+            this.btnBorrower.BackColor = System.Drawing.SystemColors.Control;
             this.btnBorrower.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBorrower.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBorrower.FlatAppearance.BorderSize = 0;
             this.btnBorrower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrower.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.btnBorrower.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
-            this.btnBorrower.IconColor = System.Drawing.Color.Black;
+            this.btnBorrower.IconColor = System.Drawing.Color.DarkGreen;
             this.btnBorrower.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBorrower.IconSize = 45;
             this.btnBorrower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -185,18 +190,19 @@ namespace Loan_Management_App
             this.btnBorrower.Size = new System.Drawing.Size(348, 75);
             this.btnBorrower.TabIndex = 3;
             this.btnBorrower.Text = "Borrower";
-            this.btnBorrower.UseVisualStyleBackColor = true;
+            this.btnBorrower.UseVisualStyleBackColor = false;
             this.btnBorrower.Click += new System.EventHandler(this.btnBorrower_Click);
             // 
             // btnStatistics
             // 
+            this.btnStatistics.BackColor = System.Drawing.SystemColors.Control;
             this.btnStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStatistics.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStatistics.FlatAppearance.BorderSize = 0;
             this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistics.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.btnStatistics.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
-            this.btnStatistics.IconColor = System.Drawing.Color.Black;
+            this.btnStatistics.IconColor = System.Drawing.Color.DarkGreen;
             this.btnStatistics.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnStatistics.IconSize = 45;
             this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,12 +213,12 @@ namespace Loan_Management_App
             this.btnStatistics.Size = new System.Drawing.Size(348, 75);
             this.btnStatistics.TabIndex = 2;
             this.btnStatistics.Text = "Statistics";
-            this.btnStatistics.UseVisualStyleBackColor = true;
+            this.btnStatistics.UseVisualStyleBackColor = false;
             this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(208)))));
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label2);
@@ -284,7 +290,7 @@ namespace Loan_Management_App
             // 
             // iconPictureBox1
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(208)))));
             this.iconPictureBox1.ForeColor = System.Drawing.Color.Black;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.University;
             this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
@@ -343,7 +349,7 @@ namespace Loan_Management_App
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.panel6.BackColor = System.Drawing.SystemColors.Control;
             this.panel6.Controls.Add(this.lblDate);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.iconPictureBox3);
@@ -384,10 +390,10 @@ namespace Loan_Management_App
             // 
             // iconPictureBox3
             // 
-            this.iconPictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.iconPictureBox3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox3.ForeColor = System.Drawing.Color.DarkGreen;
             this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
-            this.iconPictureBox3.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox3.IconColor = System.Drawing.Color.DarkGreen;
             this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox3.IconSize = 77;
             this.iconPictureBox3.Location = new System.Drawing.Point(466, 16);
@@ -446,7 +452,7 @@ namespace Loan_Management_App
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.panel5.BackColor = System.Drawing.SystemColors.Control;
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.lblTime);
@@ -479,10 +485,10 @@ namespace Loan_Management_App
             // 
             // iconPictureBox2
             // 
-            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox2.ForeColor = System.Drawing.Color.DarkGreen;
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Clock;
-            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.IconColor = System.Drawing.Color.DarkGreen;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 78;
             this.iconPictureBox2.Location = new System.Drawing.Point(918, 16);

@@ -20,7 +20,7 @@ namespace Loan_Management_App
         //index row for identifying what column is selected
         int indexRow;
         //Instantiate Connection to XAMPP Server
-        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=lendingSystem");
+        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=reactangularvue;database=lendingSystem");
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataAdapter adp = new MySqlDataAdapter();
 
@@ -32,15 +32,14 @@ namespace Loan_Management_App
                 con.Open();
                 string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.borrowerID as BorrowerID,borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
                     "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.daysRemaining as 'Days Remaining',loans.interest as 'Interest',loans.dailyPayment as " +
-                    "'Daily Payment',loans.balance as 'Balance',loans.dateBorrow as 'Date Borrowed', loans.duedate as 'Due Date' from borrower," +
-                    "loans where borrower.borrowerID = loans.borrowerID";
+                    "'Daily Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%m/%d/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate, '%m/%d/%Y') as 'Due Date' from borrower," +
+                    "loans where borrower.borrowerID = loans.borrowerID AND loans.balance != 0;";
                 adp = new MySqlDataAdapter(dataTable, con);
                 DataTable dtable = new DataTable();
                 adp.Fill(dtable);
 
                 //fills the datagridview
                 dataGridViewLoans.DataSource = dtable;
-                dataGridViewLoans.CurrentCell.Selected = false;
                 con.Close();
             }
             catch
@@ -56,15 +55,14 @@ namespace Loan_Management_App
             con.Open();
             string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.borrowerID as BorrowerID,borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
                     "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.daysRemaining as 'Days Remaining',loans.interest as 'Interest',loans.dailyPayment as " +
-                    "'Daily Payment',loans.balance as 'Balance',loans.dateBorrow as 'Date Borrowed', loans.duedate as 'Due Date' from borrower," +
-                    "loans where borrower.borrowerID = loans.borrowerID";
+                    "'Daily Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%m/%d/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate,'%m/%d/%Y') as 'Due Date' from borrower," +
+                    "loans where borrower.borrowerID = loans.borrowerID AND loans.balance != 0;";
             adp = new MySqlDataAdapter(dataTable, con);
             DataTable dtable = new DataTable();
             adp.Fill(dtable);
 
             //fills the datagridview
             dataGridViewLoans.DataSource = dtable;
-            dataGridViewLoans.CurrentCell.Selected = false;
             con.Close();
 
             //clears search fields
@@ -81,7 +79,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Avoid Clicking Anywhere", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sorting Success", "Data Sorted!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -135,8 +133,8 @@ namespace Loan_Management_App
                 con.Open();
                 string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.borrowerID as BorrowerID,borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
                     "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.daysRemaining as 'Days Remaining',loans.interest as 'Interest',loans.dailyPayment as " +
-                    "'Daily Payment',loans.balance as 'Balance',loans.dateBorrow as 'Date Borrowed', loans.duedate as 'Due Date' from borrower," +
-                    "loans where borrower.borrowerID = loans.borrowerID AND borrower." + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
+                    "'Daily Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%m/%d/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate, '%m/%d/%Y') as 'Due Date' from borrower," +
+                    "loans where borrower.borrowerID = loans.borrowerID AND loans.balance != 0 AND borrower." + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
                 adp = new MySqlDataAdapter(dataTable, con);
                 DataTable dtable = new DataTable();
                 adp.Fill(dtable);
@@ -157,6 +155,9 @@ namespace Loan_Management_App
             Apply_Loan applyLoan = new Apply_Loan();
             applyLoan.btnApply.Text = "Apply";
             applyLoan.lblEditMode.Text = "FALSE";
+
+            //Cursor Fucos on Borrower ID textField
+            applyLoan.txtBorrowerID.Focus();
 
             applyLoan.Show();
 

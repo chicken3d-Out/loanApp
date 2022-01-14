@@ -18,16 +18,16 @@ namespace Loan_Management_App
             InitializeComponent();
         }
         //Instantiate Connection to XAMPP Server
-        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=lendingsystem");
+        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=reactangularvue;database=lendingsystem");
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataAdapter adp = new MySqlDataAdapter();
 
         private void btn_login_Click(object sender, EventArgs e)
-        {
+        {/*
             try
-            {
+            {*/
                 con.Open();
-                string login = "SELECT * FROM accounts WHERE username='" + txtUsername.Text + "' AND password='" + txtPassword.Text + "'";
+                string login = "SELECT * FROM accounts WHERE username='" + txtUsername.Text + "' AND password= md5("+ txtPassword.Text +")";
                 cmd = new MySqlCommand(login, con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read() == true)
@@ -44,11 +44,11 @@ namespace Loan_Management_App
                     txtPassword.Text = "";
                     txtUsername.Focus();
                 }
-            }
+            /*}
             catch
             {
                 MessageBox.Show("Login Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)

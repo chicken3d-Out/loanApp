@@ -359,6 +359,7 @@ namespace Loan_Management_App
             // lblRemainingDays
             // 
             this.lblRemainingDays.AutoSize = true;
+            this.lblRemainingDays.BackColor = System.Drawing.Color.White;
             this.lblRemainingDays.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRemainingDays.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblRemainingDays.Location = new System.Drawing.Point(152, 345);
@@ -370,6 +371,7 @@ namespace Loan_Management_App
             // lblRemainingBalance
             // 
             this.lblRemainingBalance.AutoSize = true;
+            this.lblRemainingBalance.BackColor = System.Drawing.Color.White;
             this.lblRemainingBalance.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRemainingBalance.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblRemainingBalance.Location = new System.Drawing.Point(152, 119);

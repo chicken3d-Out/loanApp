@@ -36,3 +36,4 @@ C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Release\Loa
 C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Release\Loan Management App.csproj.CopyComplete
 C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Release\Loan Management App.exe
 C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Release\Loan Management App.pdb
+C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Release\Loan Management App.csproj.AssemblyReference.cache

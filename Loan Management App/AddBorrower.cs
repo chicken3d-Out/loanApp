@@ -18,7 +18,7 @@ namespace Loan_Management_App
             InitializeComponent();
         }
         //Instantiate Connection to XAMPP Server
-        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=lendingSystem");
+        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=reactangularvue;database=lendingSystem");
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataAdapter adp = new MySqlDataAdapter();
 

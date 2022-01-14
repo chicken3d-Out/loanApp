@@ -24,7 +24,7 @@ namespace Loan_Management_App
             statistics1.BringToFront();
         }
         //Instantiate Connection to XAMPP Server
-        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=inventory");
+        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=reactangularvue;database=inventory");
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataAdapter adp = new MySqlDataAdapter();
 

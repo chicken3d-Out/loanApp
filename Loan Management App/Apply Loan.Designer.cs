@@ -401,7 +401,7 @@ namespace Loan_Management_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(180)))), ((int)(((byte)(163)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(208)))));
             this.ClientSize = new System.Drawing.Size(1010, 539);
             this.Controls.Add(this.borrowerID);
             this.Controls.Add(this.lblEditMode);
@@ -415,6 +415,7 @@ namespace Loan_Management_App
             this.Name = "Apply_Loan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Apply_Loan";
+            this.Load += new System.EventHandler(this.Apply_Loan_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);

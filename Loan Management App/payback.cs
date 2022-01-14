@@ -21,7 +21,7 @@ namespace Loan_Management_App
         int currentBalance;
         int currentRemainingDays;
         //Instantiate Connection to XAMPP Server
-        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=lendingsystem");
+        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=reactangularvue;database=lendingsystem");
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataAdapter adp = new MySqlDataAdapter();
 
@@ -90,7 +90,7 @@ namespace Loan_Management_App
             {
                 MessageBox.Show("Dont Leave the Input Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            else if (MessageBox.Show("Click Yes To Confirm Payment", "Confirm Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 con.Open();
                 string checkBorrowerExist = "SELECT loanID from loans where loanID = " + txtBorrowerID.Text + ";";

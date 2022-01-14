@@ -461,7 +461,7 @@ namespace Loan_Management_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(180)))), ((int)(((byte)(163)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(208)))));
             this.ClientSize = new System.Drawing.Size(1010, 578);
             this.Controls.Add(this.borrowerID);
             this.Controls.Add(this.lblEditMode);

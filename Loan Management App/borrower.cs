@@ -20,7 +20,7 @@ namespace Loan_Management_App
         //index row for identifying what column is selected
         int indexRow;
         //Instantiate Connection to XAMPP Server
-        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=lendingSystem");
+        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=reactangularvue;database=lendingSystem");
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataAdapter adp = new MySqlDataAdapter();
         private void borrower_Load(object sender, EventArgs e)
@@ -38,7 +38,6 @@ namespace Loan_Management_App
 
                 //fills the datagridview
                 dataGridViewBorrower.DataSource = dtable;
-                dataGridViewBorrower.CurrentCell.Selected = false;
                 con.Close();
             }
             catch
@@ -62,7 +61,6 @@ namespace Loan_Management_App
 
             //fills the datagridview
             dataGridViewBorrower.DataSource = dtable;
-            dataGridViewBorrower.CurrentCell.Selected = false;
             con.Close();
 
             //clears search fields
@@ -79,7 +77,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Avoid Clicking Anywhere", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sorting Success", "Data Sorted!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

@@ -20,7 +20,7 @@ namespace Loan_Management_App
         //index row for identifying what column is selected
         int indexRow;
         //Instantiate Connection to XAMPP Server
-        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=;database=lendingSystem");
+        MySqlConnection con = new MySqlConnection("datasource=127.0.0.1;port=3306;username=root;password=reactangularvue;database=lendingSystem");
         MySqlCommand cmd = new MySqlCommand();
         MySqlDataAdapter adp = new MySqlDataAdapter();
 
@@ -30,16 +30,15 @@ namespace Loan_Management_App
             {
                 //Open Connection
                 con.Open();
-                string dataTable = "SELECT payLogs.payLogsID as 'ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
-                    " 'Payment Amount', payLogs.oo as '--',payLogs.dateOfPayment as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
-                    "from borrower,payLogs where borrower.borrowerID = payLogs.borrowerID;";
+                string dataTable = "SELECT payLogs.payLogsID as 'Pay Logs ID',loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
+                    " 'Payment Amount', payLogs.oo as '--',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
+                    "from borrower,payLogs,loans where borrower.borrowerID = payLogs.borrowerID AND loans.loanID = payLogs.loanID;";
                 adp = new MySqlDataAdapter(dataTable, con);
                 DataTable dtable = new DataTable();
                 adp.Fill(dtable);
 
                 //fills the datagridview
                 dataGridViewPayLogs.DataSource = dtable;
-                dataGridViewPayLogs.CurrentCell.Selected = false;
                 con.Close();
             }
             catch
@@ -53,16 +52,15 @@ namespace Loan_Management_App
         {
             //Open Connection
             con.Open();
-            string dataTable = "SELECT payLogs.payLogsID as 'ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
-                    " 'Payment Amount', payLogs.oo as '--',payLogs.dateOfPayment as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
-                    "from borrower,payLogs where borrower.borrowerID = payLogs.borrowerID;";
+            string dataTable = "SELECT payLogs.payLogsID as 'Pay Logs ID',loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
+                    " 'Payment Amount', payLogs.oo as '--',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
+                    "from borrower,payLogs,loans where borrower.borrowerID = payLogs.borrowerID AND loans.loanID = payLogs.loanID;";
             adp = new MySqlDataAdapter(dataTable, con);
             DataTable dtable = new DataTable();
             adp.Fill(dtable);
 
             //fills the datagridview
             dataGridViewPayLogs.DataSource = dtable;
-            dataGridViewPayLogs.CurrentCell.Selected = false;
             con.Close();
 
             //clears search fields
@@ -79,7 +77,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Avoid Clicking Anywhere", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sorting Success", "Data Sorted!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -131,9 +129,9 @@ namespace Loan_Management_App
             else
             {
                 con.Open();
-                string dataTable = "SELECT payLogs.payLogsID as 'ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
-                    " 'Payment Amount', payLogs.oo as '--',payLogs.dateOfPayment as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
-                    "from borrower,payLogs where borrower.borrowerID = payLogs.borrowerID AND borrower." + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
+                string dataTable = "SELECT payLogs.payLogsID as 'Pay logs ID',loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
+                    " 'Payment Amount', payLogs.oo as '--',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
+                    "from borrower,payLogs,loans where borrower.borrowerID = payLogs.borrowerID AND loans.loanID = payLogs.loanID AND loans." + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
                 adp = new MySqlDataAdapter(dataTable, con);
                 DataTable dtable = new DataTable();
                 adp.Fill(dtable);
@@ -151,6 +149,52 @@ namespace Loan_Management_App
         private void dataGridViewPayLogs_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridViewPayLogs.ClearSelection();
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPayLogs.Rows.Count <= 0)
+            {
+                MessageBox.Show("There is no data to be exported!", "No Data Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (MessageBox.Show("Are you sure you want to Export data now to Excel?", "Export To Excel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //saving datagrid inputs to microsoft excel
+                saveFileDialog1.InitialDirectory = "C:/Downloads";
+                saveFileDialog1.Title = "Save as Excel File";
+                saveFileDialog1.FileName = "Pay Logs Report";
+                saveFileDialog1.Filter = "Excel Files(2019)|*.xlsx";
+
+                if (saveFileDialog1.ShowDialog() != DialogResult.Cancel)
+                {
+                    Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    ExcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    //Change properties of the workbook
+                    ExcelApp.Columns.ColumnWidth = 20;
+
+                    //Storing header Part in Excel
+                    for (int i = 1; i < dataGridViewPayLogs.Columns.Count + 1; i++)
+                    {
+                        ExcelApp.Cells[1, i] = dataGridViewPayLogs.Columns[i - 1].HeaderText;
+                    }
+
+                    //Storing each row and column value to excel sheet
+                    for (int i = 0; i < dataGridViewPayLogs.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataGridViewPayLogs.Columns.Count; j++)
+                        {
+                            ExcelApp.Cells[i + 2, j + 1] = dataGridViewPayLogs.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                    ExcelApp.ActiveWorkbook.SaveCopyAs(saveFileDialog1.FileName.ToString());
+                    ExcelApp.ActiveWorkbook.Saved = true;
+                    ExcelApp.Quit();
+
+                    MessageBox.Show("Data Has Been Successfully Exported to Excel File", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
         }
     }
 }
