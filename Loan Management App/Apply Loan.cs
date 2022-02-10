@@ -28,6 +28,7 @@ namespace Loan_Management_App
         double balance;
         double dailyPayment;
         double additionalAmount;
+        int durationSkipSundays;
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -50,10 +51,23 @@ namespace Loan_Management_App
                 {
                     MessageBox.Show("Interest Rate Filed is Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                //Date
-                int duration = Convert.ToInt32(txtDuationinDays.Text);
+                //Check if Days is 48Days or 64Days
 
-                this.dueDate = DateTime.Now.AddDays(duration).ToShortDateString();
+                //Days Chosen 48/64
+                int duration = Convert.ToInt32(txtDuationinDays.Text);
+                //if 48 Days add 7 Days to DueDate
+                if( duration == 48)
+                {
+                    this.durationSkipSundays = Convert.ToInt32(duration + 7);
+                }
+                //if 64 Days add 9 Days to DueDate
+                else if (duration == 60)
+                {
+                    this.durationSkipSundays = Convert.ToInt32(duration + 9);
+                }
+
+
+                this.dueDate = DateTime.Now.AddDays(this.durationSkipSundays).ToShortDateString();
 
                 //Get Interest rate
                 this.interestRate = (Convert.ToDouble(txtInterestRate.Text) / 100);
@@ -116,8 +130,8 @@ namespace Loan_Management_App
                     {
                         dr.Close();
                         string addLoans = "INSERT INTO loans values(null,"+txtBorrowerID.Text+","+txtAmountLoan.Text+","+txtDuationinDays.Text+"," +
-                            ""+txtDuationinDays.Text+","+txtInterestRate.Text+","+this.dailyPayment+","+this.balance+",curdate(),DATE_ADD(CURDATE(),INTERVAL " +
-                            ""+txtDuationinDays.Text+" DAY));";
+                            ""+txtDuationinDays.Text+","+txtInterestRate.Text+",0,"+this.dailyPayment+",0,"+this.balance+",curdate(),DATE_ADD(CURDATE(),INTERVAL " +
+                            ""+this.durationSkipSundays+" DAY));";
                         cmd = new MySqlCommand(addLoans, con);
                         int success = cmd.ExecuteNonQuery();
                         con.Close();
@@ -190,7 +204,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Creating Borrower Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -228,7 +242,7 @@ namespace Loan_Management_App
 
         private void txtDuationinDays_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar) == false)
+            if (char.IsDigit(e.KeyChar) == false || char.IsDigit(e.KeyChar) == true)
             {
                 e.Handled = true;
             }
@@ -237,6 +251,11 @@ namespace Loan_Management_App
         private void Apply_Loan_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -36,3 +36,6 @@ C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Debug\Loan_
 C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Debug\Loan_Management_App.AddBorrower.resources
 C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Debug\Loan_Management_App.Apply_Loan.resources
 C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Debug\Loan_Management_App.ViewLoans.resources
+C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Debug\Loan_Management_App.duedatebalance.resources
+C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Debug\Loan_Management_App.weeklyPayment.resources
+C:\Users\HP\source\repos\Loan Management App\Loan Management App\obj\Debug\Loan Management App.csproj.AssemblyReference.cache

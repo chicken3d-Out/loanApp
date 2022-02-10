@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loan Management App", "Loan Management App\Loan Management App.csproj", "{AC497594-6D18-492E-9F0C-664FEF86ED90}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "LoanAppSetup", "LoanAppSetup\LoanAppSetup.vdproj", "{D1EE58A5-B99C-4AAD-83DE-1C79004ECEF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,8 +15,10 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AC497594-6D18-492E-9F0C-664FEF86ED90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC497594-6D18-492E-9F0C-664FEF86ED90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC497594-6D18-492E-9F0C-664FEF86ED90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC497594-6D18-492E-9F0C-664FEF86ED90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC497594-6D18-492E-9F0C-664FEF86ED90}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC497594-6D18-492E-9F0C-664FEF86ED90}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D1EE58A5-B99C-4AAD-83DE-1C79004ECEF4}.Debug|Any CPU.ActiveCfg = Release
+		{D1EE58A5-B99C-4AAD-83DE-1C79004ECEF4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

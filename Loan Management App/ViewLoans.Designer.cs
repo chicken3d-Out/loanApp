@@ -32,30 +32,31 @@ namespace Loan_Management_App
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblInterestRate = new System.Windows.Forms.Label();
+            this.lblDueDate = new System.Windows.Forms.Label();
+            this.lblDateBorrowed = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.lblDailyPayment = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.lblDaysRemaining = new System.Windows.Forms.Label();
+            this.lblLoanAmount = new System.Windows.Forms.Label();
+            this.lblMiddlename = new System.Windows.Forms.Label();
+            this.lblLastname = new System.Windows.Forms.Label();
+            this.lblFirstname = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUpperPortion = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblFirstname = new System.Windows.Forms.Label();
-            this.lblLastname = new System.Windows.Forms.Label();
-            this.lblMiddlename = new System.Windows.Forms.Label();
-            this.lblLoanAmount = new System.Windows.Forms.Label();
-            this.lblDuration = new System.Windows.Forms.Label();
-            this.lblDaysRemaining = new System.Windows.Forms.Label();
-            this.lblDailyPayment = new System.Windows.Forms.Label();
-            this.lblInterestRate = new System.Windows.Forms.Label();
-            this.lblBalance = new System.Windows.Forms.Label();
-            this.lblDateBorrowed = new System.Windows.Forms.Label();
-            this.lblDueDate = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Exit = new FontAwesome.Sharp.IconButton();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -91,22 +92,6 @@ namespace Loan_Management_App
             this.label12.TabIndex = 18;
             this.label12.Text = "Interest Rate :";
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(52)))), ((int)(((byte)(110)))));
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.8F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.btnCancel.Location = new System.Drawing.Point(873, 490);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(105, 40);
-            this.btnCancel.TabIndex = 30;
-            this.btnCancel.Text = "Close";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
@@ -125,6 +110,16 @@ namespace Loan_Management_App
             this.panel3.Size = new System.Drawing.Size(462, 391);
             this.panel3.TabIndex = 29;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(24, 240);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(193, 32);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Date Borrowed :";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -134,6 +129,66 @@ namespace Loan_Management_App
             this.label6.Size = new System.Drawing.Size(131, 32);
             this.label6.TabIndex = 16;
             this.label6.Text = "Due Date :";
+            // 
+            // lblInterestRate
+            // 
+            this.lblInterestRate.AutoSize = true;
+            this.lblInterestRate.BackColor = System.Drawing.Color.White;
+            this.lblInterestRate.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInterestRate.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblInterestRate.Location = new System.Drawing.Point(249, 27);
+            this.lblInterestRate.Name = "lblInterestRate";
+            this.lblInterestRate.Size = new System.Drawing.Size(26, 27);
+            this.lblInterestRate.TabIndex = 0;
+            this.lblInterestRate.Text = "-";
+            // 
+            // lblDueDate
+            // 
+            this.lblDueDate.AutoSize = true;
+            this.lblDueDate.BackColor = System.Drawing.Color.White;
+            this.lblDueDate.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDueDate.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblDueDate.Location = new System.Drawing.Point(249, 313);
+            this.lblDueDate.Name = "lblDueDate";
+            this.lblDueDate.Size = new System.Drawing.Size(26, 27);
+            this.lblDueDate.TabIndex = 0;
+            this.lblDueDate.Text = "-";
+            // 
+            // lblDateBorrowed
+            // 
+            this.lblDateBorrowed.AutoSize = true;
+            this.lblDateBorrowed.BackColor = System.Drawing.Color.White;
+            this.lblDateBorrowed.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateBorrowed.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblDateBorrowed.Location = new System.Drawing.Point(249, 240);
+            this.lblDateBorrowed.Name = "lblDateBorrowed";
+            this.lblDateBorrowed.Size = new System.Drawing.Size(26, 27);
+            this.lblDateBorrowed.TabIndex = 0;
+            this.lblDateBorrowed.Text = "-";
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.BackColor = System.Drawing.Color.White;
+            this.lblBalance.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblBalance.Location = new System.Drawing.Point(249, 172);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(26, 27);
+            this.lblBalance.TabIndex = 0;
+            this.lblBalance.Text = "-";
+            // 
+            // lblDailyPayment
+            // 
+            this.lblDailyPayment.AutoSize = true;
+            this.lblDailyPayment.BackColor = System.Drawing.Color.White;
+            this.lblDailyPayment.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDailyPayment.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblDailyPayment.Location = new System.Drawing.Point(249, 97);
+            this.lblDailyPayment.Name = "lblDailyPayment";
+            this.lblDailyPayment.Size = new System.Drawing.Size(26, 27);
+            this.lblDailyPayment.TabIndex = 0;
+            this.lblDailyPayment.Text = "-";
             // 
             // panel2
             // 
@@ -165,6 +220,26 @@ namespace Loan_Management_App
             this.label4.TabIndex = 0;
             this.label4.Text = "Middlename :";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(56, 313);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(183, 32);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Total Payment :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(48, 255);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(210, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Duration in Days :";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -185,115 +260,6 @@ namespace Loan_Management_App
             this.label3.TabIndex = 0;
             this.label3.Text = "Last Name :";
             this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(123, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Firstname :";
-            // 
-            // lblUpperPortion
-            // 
-            this.lblUpperPortion.AutoSize = true;
-            this.lblUpperPortion.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpperPortion.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblUpperPortion.Location = new System.Drawing.Point(24, 4);
-            this.lblUpperPortion.Name = "lblUpperPortion";
-            this.lblUpperPortion.Size = new System.Drawing.Size(173, 38);
-            this.lblUpperPortion.TabIndex = 0;
-            this.lblUpperPortion.Text = "Loan Details";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGreen;
-            this.panel1.Controls.Add(this.lblUpperPortion);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 50);
-            this.panel1.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(48, 255);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Duration in Days :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(56, 313);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(202, 32);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Days Remaining :";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(24, 240);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(193, 32);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Date Borrowed :";
-            // 
-            // lblFirstname
-            // 
-            this.lblFirstname.AutoSize = true;
-            this.lblFirstname.BackColor = System.Drawing.Color.White;
-            this.lblFirstname.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstname.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblFirstname.Location = new System.Drawing.Point(289, 27);
-            this.lblFirstname.Name = "lblFirstname";
-            this.lblFirstname.Size = new System.Drawing.Size(26, 27);
-            this.lblFirstname.TabIndex = 0;
-            this.lblFirstname.Text = "-";
-            // 
-            // lblLastname
-            // 
-            this.lblLastname.AutoSize = true;
-            this.lblLastname.BackColor = System.Drawing.Color.White;
-            this.lblLastname.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastname.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblLastname.Location = new System.Drawing.Point(289, 83);
-            this.lblLastname.Name = "lblLastname";
-            this.lblLastname.Size = new System.Drawing.Size(26, 27);
-            this.lblLastname.TabIndex = 0;
-            this.lblLastname.Text = "-";
-            // 
-            // lblMiddlename
-            // 
-            this.lblMiddlename.AutoSize = true;
-            this.lblMiddlename.BackColor = System.Drawing.Color.White;
-            this.lblMiddlename.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMiddlename.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblMiddlename.Location = new System.Drawing.Point(289, 139);
-            this.lblMiddlename.Name = "lblMiddlename";
-            this.lblMiddlename.Size = new System.Drawing.Size(26, 27);
-            this.lblMiddlename.TabIndex = 0;
-            this.lblMiddlename.Text = "-";
-            // 
-            // lblLoanAmount
-            // 
-            this.lblLoanAmount.AutoSize = true;
-            this.lblLoanAmount.BackColor = System.Drawing.Color.White;
-            this.lblLoanAmount.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoanAmount.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblLoanAmount.Location = new System.Drawing.Point(289, 197);
-            this.lblLoanAmount.Name = "lblLoanAmount";
-            this.lblLoanAmount.Size = new System.Drawing.Size(26, 27);
-            this.lblLoanAmount.TabIndex = 0;
-            this.lblLoanAmount.Text = "-";
             // 
             // lblDuration
             // 
@@ -319,73 +285,126 @@ namespace Loan_Management_App
             this.lblDaysRemaining.TabIndex = 0;
             this.lblDaysRemaining.Text = "-";
             // 
-            // lblDailyPayment
+            // lblLoanAmount
             // 
-            this.lblDailyPayment.AutoSize = true;
-            this.lblDailyPayment.BackColor = System.Drawing.Color.White;
-            this.lblDailyPayment.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDailyPayment.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblDailyPayment.Location = new System.Drawing.Point(249, 97);
-            this.lblDailyPayment.Name = "lblDailyPayment";
-            this.lblDailyPayment.Size = new System.Drawing.Size(26, 27);
-            this.lblDailyPayment.TabIndex = 0;
-            this.lblDailyPayment.Text = "-";
+            this.lblLoanAmount.AutoSize = true;
+            this.lblLoanAmount.BackColor = System.Drawing.Color.White;
+            this.lblLoanAmount.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoanAmount.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblLoanAmount.Location = new System.Drawing.Point(289, 197);
+            this.lblLoanAmount.Name = "lblLoanAmount";
+            this.lblLoanAmount.Size = new System.Drawing.Size(26, 27);
+            this.lblLoanAmount.TabIndex = 0;
+            this.lblLoanAmount.Text = "-";
             // 
-            // lblInterestRate
+            // lblMiddlename
             // 
-            this.lblInterestRate.AutoSize = true;
-            this.lblInterestRate.BackColor = System.Drawing.Color.White;
-            this.lblInterestRate.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInterestRate.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblInterestRate.Location = new System.Drawing.Point(249, 27);
-            this.lblInterestRate.Name = "lblInterestRate";
-            this.lblInterestRate.Size = new System.Drawing.Size(26, 27);
-            this.lblInterestRate.TabIndex = 0;
-            this.lblInterestRate.Text = "-";
+            this.lblMiddlename.AutoSize = true;
+            this.lblMiddlename.BackColor = System.Drawing.Color.White;
+            this.lblMiddlename.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMiddlename.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblMiddlename.Location = new System.Drawing.Point(289, 139);
+            this.lblMiddlename.Name = "lblMiddlename";
+            this.lblMiddlename.Size = new System.Drawing.Size(26, 27);
+            this.lblMiddlename.TabIndex = 0;
+            this.lblMiddlename.Text = "-";
             // 
-            // lblBalance
+            // lblLastname
             // 
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.BackColor = System.Drawing.Color.White;
-            this.lblBalance.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblBalance.Location = new System.Drawing.Point(249, 172);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(26, 27);
-            this.lblBalance.TabIndex = 0;
-            this.lblBalance.Text = "-";
+            this.lblLastname.AutoSize = true;
+            this.lblLastname.BackColor = System.Drawing.Color.White;
+            this.lblLastname.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastname.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblLastname.Location = new System.Drawing.Point(289, 83);
+            this.lblLastname.Name = "lblLastname";
+            this.lblLastname.Size = new System.Drawing.Size(26, 27);
+            this.lblLastname.TabIndex = 0;
+            this.lblLastname.Text = "-";
             // 
-            // lblDateBorrowed
+            // lblFirstname
             // 
-            this.lblDateBorrowed.AutoSize = true;
-            this.lblDateBorrowed.BackColor = System.Drawing.Color.White;
-            this.lblDateBorrowed.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateBorrowed.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblDateBorrowed.Location = new System.Drawing.Point(249, 240);
-            this.lblDateBorrowed.Name = "lblDateBorrowed";
-            this.lblDateBorrowed.Size = new System.Drawing.Size(26, 27);
-            this.lblDateBorrowed.TabIndex = 0;
-            this.lblDateBorrowed.Text = "-";
+            this.lblFirstname.AutoSize = true;
+            this.lblFirstname.BackColor = System.Drawing.Color.White;
+            this.lblFirstname.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstname.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblFirstname.Location = new System.Drawing.Point(289, 27);
+            this.lblFirstname.Name = "lblFirstname";
+            this.lblFirstname.Size = new System.Drawing.Size(26, 27);
+            this.lblFirstname.TabIndex = 0;
+            this.lblFirstname.Text = "-";
             // 
-            // lblDueDate
+            // label2
             // 
-            this.lblDueDate.AutoSize = true;
-            this.lblDueDate.BackColor = System.Drawing.Color.White;
-            this.lblDueDate.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDueDate.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblDueDate.Location = new System.Drawing.Point(249, 313);
-            this.lblDueDate.Name = "lblDueDate";
-            this.lblDueDate.Size = new System.Drawing.Size(26, 27);
-            this.lblDueDate.TabIndex = 0;
-            this.lblDueDate.Text = "-";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(123, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 32);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Firstname :";
+            // 
+            // lblUpperPortion
+            // 
+            this.lblUpperPortion.AutoSize = true;
+            this.lblUpperPortion.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpperPortion.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblUpperPortion.Location = new System.Drawing.Point(24, 4);
+            this.lblUpperPortion.Name = "lblUpperPortion";
+            this.lblUpperPortion.Size = new System.Drawing.Size(173, 38);
+            this.lblUpperPortion.TabIndex = 0;
+            this.lblUpperPortion.Text = "Loan Details";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel1.Controls.Add(this.btn_Exit);
+            this.panel1.Controls.Add(this.lblUpperPortion);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1010, 50);
+            this.panel1.TabIndex = 27;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(52)))), ((int)(((byte)(110)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.8F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.button1.Location = new System.Drawing.Point(873, 487);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 40);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_Exit
+            // 
+            this.btn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Exit.FlatAppearance.BorderSize = 0;
+            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exit.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btn_Exit.IconColor = System.Drawing.Color.Black;
+            this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Exit.IconSize = 35;
+            this.btn_Exit.Location = new System.Drawing.Point(953, 6);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(45, 36);
+            this.btn_Exit.TabIndex = 13;
+            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // ViewLoans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(180)))), ((int)(((byte)(163)))));
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1010, 539);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -408,7 +427,6 @@ namespace Loan_Management_App
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
@@ -432,5 +450,7 @@ namespace Loan_Management_App
         public System.Windows.Forms.Label lblMiddlename;
         public System.Windows.Forms.Label lblLastname;
         public System.Windows.Forms.Label lblFirstname;
+        private System.Windows.Forms.Button button1;
+        private FontAwesome.Sharp.IconButton btn_Exit;
     }
 }

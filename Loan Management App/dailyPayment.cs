@@ -39,7 +39,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Daily Payment Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
 
@@ -62,7 +62,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Daily Payment Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
 

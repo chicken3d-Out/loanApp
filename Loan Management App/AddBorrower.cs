@@ -47,7 +47,7 @@ namespace Loan_Management_App
                 {
                     MessageBox.Show("Barangay Field is Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if (txtAge.Text == "")
+                if (collector.Text == "")
                 {
                     MessageBox.Show("Age Field is Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -85,8 +85,8 @@ namespace Loan_Management_App
                 {
                     con.Open();
                     string addBorrower = "INSERT INTO borrower VALUES (NULL,'"+txtFIrstname.Text+"','"+txtLastname.Text+"','"+txtMiddlename.Text+"'" +
-                        ","+txtAge.Text+",'"+txtGender.Text+"','"+txtStreet.Text+"','"+txtBarangay.Text+"','"+txtMunicipality.Text+"','"+txtProvince.Text+"'" +
-                        ","+txtZipCode.Text+","+txtPhoneNo.Text+",'"+txtOccupation.Text+"');";
+                        ",0,'"+txtGender.Text+"','"+txtStreet.Text+"','"+txtBarangay.Text+"','"+txtMunicipality.Text+"','"+txtProvince.Text+"'" +
+                        ","+txtZipCode.Text+","+txtPhoneNo.Text+",'"+txtOccupation.Text+"','"+collector.Text+"');";
                     cmd = new MySqlCommand(addBorrower, con);
                     int success = cmd.ExecuteNonQuery();
                     con.Close();
@@ -97,7 +97,7 @@ namespace Loan_Management_App
                         txtFIrstname.Text = "";
                         txtLastname.Text = "";
                         txtMiddlename.Text = "";
-                        txtAge.Text = "";
+                        collector.Text = "";
                         txtGender.Text = "";
                         txtStreet.Text = "";
                         txtBarangay.Text = "";
@@ -116,7 +116,7 @@ namespace Loan_Management_App
                 {
                     con.Open();
                     string editBorrower = "UPDATE borrower SET firstName ='" + txtFIrstname.Text + "', lastName = '" + txtLastname.Text + "', middleName = '" + txtMiddlename.Text + "'" +
-                        ", age = " + txtAge.Text + ", gender = '" + txtGender.Text + "', street = '" + txtStreet.Text + "', barangay = '" + txtBarangay.Text + "', municipality = '" + txtMunicipality.Text + "', province = '" + txtProvince.Text + "'" +
+                        ", collectorInCharge = " + collector.Text + ", gender = '" + txtGender.Text + "', street = '" + txtStreet.Text + "', barangay = '" + txtBarangay.Text + "', municipality = '" + txtMunicipality.Text + "', province = '" + txtProvince.Text + "'" +
                         ", zipcode = " + txtZipCode.Text + ", phoneNo = " + txtPhoneNo.Text + ", occupation = '" + txtOccupation.Text + "' WHERE borrowerID = "+borrowerID.Text+"";
                     cmd = new MySqlCommand(editBorrower, con);
                     int success = cmd.ExecuteNonQuery();
@@ -136,7 +136,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Creating Borrower Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -150,7 +150,7 @@ namespace Loan_Management_App
             txtFIrstname.Text = "";
             txtLastname.Text = "";
             txtMiddlename.Text = "";
-            txtAge.Text = "";
+            collector.Text = "";
             txtGender.Text = "";
             txtStreet.Text = "";
             txtBarangay.Text = "";
@@ -187,7 +187,20 @@ namespace Loan_Management_App
 
         private void txtGender_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar) == true)
+            if (char.IsDigit(e.KeyChar) == true || char.IsDigit(e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void collector_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false || char.IsDigit(e.KeyChar) == true)
             {
                 e.Handled = true;
             }

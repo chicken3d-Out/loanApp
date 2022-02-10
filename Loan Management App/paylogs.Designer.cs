@@ -53,11 +53,11 @@ namespace Loan_Management_App
             this.dataGridViewPayLogs.AllowUserToResizeColumns = false;
             this.dataGridViewPayLogs.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridViewPayLogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewPayLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPayLogs.BackgroundColor = System.Drawing.Color.White;
@@ -76,8 +76,8 @@ namespace Loan_Management_App
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPayLogs.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewPayLogs.Dock = System.Windows.Forms.DockStyle.Top;
@@ -87,11 +87,13 @@ namespace Loan_Management_App
             this.dataGridViewPayLogs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewPayLogs.RowHeadersVisible = false;
             this.dataGridViewPayLogs.RowHeadersWidth = 51;
-            this.dataGridViewPayLogs.RowTemplate.Height = 24;
+            this.dataGridViewPayLogs.RowTemplate.Height = 30;
             this.dataGridViewPayLogs.ShowEditingIcon = false;
-            this.dataGridViewPayLogs.Size = new System.Drawing.Size(1009, 508);
+            this.dataGridViewPayLogs.Size = new System.Drawing.Size(1152, 508);
             this.dataGridViewPayLogs.TabIndex = 7;
             this.dataGridViewPayLogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPayLogs_CellClick);
+            this.dataGridViewPayLogs.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPayLogs_CellMouseLeave);
+            this.dataGridViewPayLogs.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewPayLogs_CellMouseMove);
             this.dataGridViewPayLogs.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewPayLogs_DataBindingComplete);
             // 
             // panel6
@@ -106,8 +108,9 @@ namespace Loan_Management_App
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1009, 50);
+            this.panel6.Size = new System.Drawing.Size(1152, 50);
             this.panel6.TabIndex = 6;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // btn_search
             // 
@@ -119,7 +122,7 @@ namespace Loan_Management_App
             this.btn_search.IconColor = System.Drawing.Color.Black;
             this.btn_search.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_search.IconSize = 35;
-            this.btn_search.Location = new System.Drawing.Point(944, 4);
+            this.btn_search.Location = new System.Drawing.Point(1083, 4);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(51, 43);
             this.btn_search.TabIndex = 14;
@@ -130,7 +133,7 @@ namespace Loan_Management_App
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(561, 11);
+            this.label9.Location = new System.Drawing.Point(700, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 23);
             this.label9.TabIndex = 13;
@@ -140,23 +143,22 @@ namespace Loan_Management_App
             // 
             this.searchBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
             this.searchBy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchBy.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.searchBy.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.searchBy.FormattingEnabled = true;
             this.searchBy.Items.AddRange(new object[] {
             "LoanID"});
-            this.searchBy.Location = new System.Drawing.Point(656, 8);
+            this.searchBy.Location = new System.Drawing.Point(795, 8);
             this.searchBy.Name = "searchBy";
-            this.searchBy.Size = new System.Drawing.Size(121, 36);
+            this.searchBy.Size = new System.Drawing.Size(121, 39);
             this.searchBy.TabIndex = 12;
             // 
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.txtSearch.Location = new System.Drawing.Point(783, 8);
+            this.txtSearch.Location = new System.Drawing.Point(922, 5);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(155, 36);
+            this.txtSearch.Size = new System.Drawing.Size(155, 43);
             this.txtSearch.TabIndex = 11;
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
@@ -168,7 +170,7 @@ namespace Loan_Management_App
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9.8F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.btnRefresh.Location = new System.Drawing.Point(439, 4);
+            this.btnRefresh.Location = new System.Drawing.Point(578, 4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(105, 40);
             this.btnRefresh.TabIndex = 2;
@@ -200,7 +202,7 @@ namespace Loan_Management_App
             this.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.8F, System.Drawing.FontStyle.Bold);
             this.btnExportExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.btnExportExcel.Location = new System.Drawing.Point(833, 563);
+            this.btnExportExcel.Location = new System.Drawing.Point(970, 572);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Size = new System.Drawing.Size(135, 40);
             this.btnExportExcel.TabIndex = 8;
@@ -216,7 +218,7 @@ namespace Loan_Management_App
             this.Controls.Add(this.dataGridViewPayLogs);
             this.Controls.Add(this.panel6);
             this.Name = "paylogs";
-            this.Size = new System.Drawing.Size(1009, 612);
+            this.Size = new System.Drawing.Size(1152, 612);
             this.Load += new System.EventHandler(this.paylogs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPayLogs)).EndInit();
             this.panel6.ResumeLayout(false);

@@ -48,12 +48,17 @@ namespace Loan_Management_App
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.txtBorrowerID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblRemainingDays = new System.Windows.Forms.Label();
+            this.lblTotalPayment = new System.Windows.Forms.Label();
             this.lblRemainingBalance = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -87,7 +92,7 @@ namespace Loan_Management_App
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1009, 50);
+            this.panel6.Size = new System.Drawing.Size(1152, 50);
             this.panel6.TabIndex = 7;
             // 
             // panel1
@@ -97,7 +102,7 @@ namespace Loan_Management_App
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1009, 50);
+            this.panel1.Size = new System.Drawing.Size(1152, 50);
             this.panel1.TabIndex = 15;
             // 
             // btn_search
@@ -199,17 +204,22 @@ namespace Loan_Management_App
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.Controls.Add(this.btnClear);
             this.panel2.Controls.Add(this.btnDailyPayment);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.txtAmount);
             this.panel2.Controls.Add(this.txtBorrowerID);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.lblBalance);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(45, 70);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(450, 506);
+            this.panel2.Size = new System.Drawing.Size(548, 506);
             this.panel2.TabIndex = 8;
             // 
             // btnClear
@@ -220,7 +230,7 @@ namespace Loan_Management_App
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 9.8F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.btnClear.Location = new System.Drawing.Point(330, 261);
+            this.btnClear.Location = new System.Drawing.Point(353, 239);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(105, 40);
             this.btnClear.TabIndex = 16;
@@ -238,10 +248,10 @@ namespace Loan_Management_App
             this.btnDailyPayment.IconColor = System.Drawing.Color.Orange;
             this.btnDailyPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDailyPayment.IconSize = 55;
-            this.btnDailyPayment.Location = new System.Drawing.Point(128, 329);
+            this.btnDailyPayment.Location = new System.Drawing.Point(97, 333);
             this.btnDailyPayment.Name = "btnDailyPayment";
             this.btnDailyPayment.Size = new System.Drawing.Size(67, 56);
-            this.btnDailyPayment.TabIndex = 15;
+            this.btnDailyPayment.TabIndex = 3;
             this.btnDailyPayment.UseVisualStyleBackColor = true;
             this.btnDailyPayment.Click += new System.EventHandler(this.btnDailyPayment_Click);
             // 
@@ -268,7 +278,7 @@ namespace Loan_Management_App
             this.btnPayment.Location = new System.Drawing.Point(287, 18);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(86, 56);
-            this.btnPayment.TabIndex = 15;
+            this.btnPayment.TabIndex = 4;
             this.btnPayment.UseVisualStyleBackColor = true;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
@@ -286,23 +296,21 @@ namespace Loan_Management_App
             // txtAmount
             // 
             this.txtAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.txtAmount.Location = new System.Drawing.Point(168, 207);
+            this.txtAmount.Location = new System.Drawing.Point(168, 189);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(169, 36);
-            this.txtAmount.TabIndex = 12;
+            this.txtAmount.Size = new System.Drawing.Size(169, 43);
+            this.txtAmount.TabIndex = 2;
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // txtBorrowerID
             // 
             this.txtBorrowerID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtBorrowerID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBorrowerID.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.txtBorrowerID.Location = new System.Drawing.Point(168, 97);
+            this.txtBorrowerID.Location = new System.Drawing.Point(168, 79);
             this.txtBorrowerID.Name = "txtBorrowerID";
-            this.txtBorrowerID.Size = new System.Drawing.Size(169, 36);
-            this.txtBorrowerID.TabIndex = 12;
+            this.txtBorrowerID.Size = new System.Drawing.Size(169, 43);
+            this.txtBorrowerID.TabIndex = 1;
             this.txtBorrowerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBorrowerID_KeyPress);
             // 
             // label4
@@ -315,11 +323,56 @@ namespace Loan_Management_App
             this.label4.TabIndex = 0;
             this.label4.Text = "Get Amount";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(196, 357);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(203, 32);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Current Balance :";
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.BackColor = System.Drawing.SystemColors.Control;
+            this.lblBalance.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.Color.Orange;
+            this.lblBalance.Location = new System.Drawing.Point(402, 362);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(26, 27);
+            this.lblBalance.TabIndex = 0;
+            this.lblBalance.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(216, 308);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(183, 32);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Total Payment :";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTotal.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.Orange;
+            this.lblTotal.Location = new System.Drawing.Point(402, 313);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(26, 27);
+            this.lblTotal.TabIndex = 0;
+            this.lblTotal.Text = "0";
+            this.lblTotal.Click += new System.EventHandler(this.lblTotal_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(37, 160);
+            this.label3.Location = new System.Drawing.Point(37, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 32);
             this.label3.TabIndex = 0;
@@ -329,7 +382,7 @@ namespace Loan_Management_App
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(37, 50);
+            this.label2.Location = new System.Drawing.Point(37, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(307, 32);
             this.label2.TabIndex = 0;
@@ -337,54 +390,67 @@ namespace Loan_Management_App
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.LightGray;
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.lblRemainingDays);
+            this.panel3.Controls.Add(this.lblTotalPayment);
             this.panel3.Controls.Add(this.lblRemainingBalance);
+            this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Location = new System.Drawing.Point(518, 70);
+            this.panel3.Location = new System.Drawing.Point(616, 70);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(450, 506);
+            this.panel3.Size = new System.Drawing.Size(503, 506);
             this.panel3.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(37, 258);
+            this.label5.Location = new System.Drawing.Point(79, 310);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(227, 37);
+            this.label5.Size = new System.Drawing.Size(204, 37);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Days Remaining :";
+            this.label5.Text = "Total Payment :";
             // 
-            // lblRemainingDays
+            // lblTotalPayment
             // 
-            this.lblRemainingDays.AutoSize = true;
-            this.lblRemainingDays.BackColor = System.Drawing.Color.White;
-            this.lblRemainingDays.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemainingDays.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblRemainingDays.Location = new System.Drawing.Point(152, 345);
-            this.lblRemainingDays.Name = "lblRemainingDays";
-            this.lblRemainingDays.Size = new System.Drawing.Size(86, 90);
-            this.lblRemainingDays.TabIndex = 0;
-            this.lblRemainingDays.Text = "0";
+            this.lblTotalPayment.AutoSize = true;
+            this.lblTotalPayment.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTotalPayment.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPayment.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblTotalPayment.Location = new System.Drawing.Point(94, 379);
+            this.lblTotalPayment.Name = "lblTotalPayment";
+            this.lblTotalPayment.Size = new System.Drawing.Size(86, 90);
+            this.lblTotalPayment.TabIndex = 0;
+            this.lblTotalPayment.Text = "0";
             // 
             // lblRemainingBalance
             // 
             this.lblRemainingBalance.AutoSize = true;
-            this.lblRemainingBalance.BackColor = System.Drawing.Color.White;
+            this.lblRemainingBalance.BackColor = System.Drawing.SystemColors.Control;
             this.lblRemainingBalance.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRemainingBalance.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblRemainingBalance.Location = new System.Drawing.Point(152, 119);
+            this.lblRemainingBalance.Location = new System.Drawing.Point(94, 179);
             this.lblRemainingBalance.Name = "lblRemainingBalance";
             this.lblRemainingBalance.Size = new System.Drawing.Size(86, 90);
             this.lblRemainingBalance.TabIndex = 0;
             this.lblRemainingBalance.Text = "0";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label10.Location = new System.Drawing.Point(142, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(227, 41);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Loan Summary";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(37, 45);
+            this.label7.Location = new System.Drawing.Point(79, 109);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(262, 37);
             this.label7.TabIndex = 0;
@@ -398,7 +464,7 @@ namespace Loan_Management_App
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
             this.Name = "payback";
-            this.Size = new System.Drawing.Size(1009, 612);
+            this.Size = new System.Drawing.Size(1152, 612);
             this.Load += new System.EventHandler(this.payback_Load);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -432,7 +498,7 @@ namespace Loan_Management_App
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblRemainingDays;
+        private System.Windows.Forms.Label lblTotalPayment;
         private System.Windows.Forms.Label lblRemainingBalance;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
@@ -442,5 +508,10 @@ namespace Loan_Management_App
         private FontAwesome.Sharp.IconButton btnPayment;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label label10;
     }
 }

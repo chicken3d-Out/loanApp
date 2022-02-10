@@ -24,6 +24,16 @@ namespace Loan_Management_App
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

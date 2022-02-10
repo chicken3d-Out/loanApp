@@ -45,17 +45,17 @@ namespace Loan_Management_App
             this.panel3.Controls.Add(this.iconPictureBox2);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(449, 167);
+            this.panel3.Size = new System.Drawing.Size(495, 117);
             this.panel3.TabIndex = 23;
             // 
             // lblTotalBorrowed
             // 
             this.lblTotalBorrowed.AutoSize = true;
-            this.lblTotalBorrowed.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBorrowed.Font = new System.Drawing.Font("Courier New", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalBorrowed.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalBorrowed.Location = new System.Drawing.Point(23, 45);
+            this.lblTotalBorrowed.Location = new System.Drawing.Point(23, 37);
             this.lblTotalBorrowed.Name = "lblTotalBorrowed";
-            this.lblTotalBorrowed.Size = new System.Drawing.Size(86, 90);
+            this.lblTotalBorrowed.Size = new System.Drawing.Size(74, 77);
             this.lblTotalBorrowed.TabIndex = 19;
             this.lblTotalBorrowed.Text = "0";
             this.lblTotalBorrowed.Click += new System.EventHandler(this.lblTotalBorrowed_Click);
@@ -64,7 +64,7 @@ namespace Loan_Management_App
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(16, 5);
+            this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(201, 37);
             this.label9.TabIndex = 19;
@@ -77,10 +77,10 @@ namespace Loan_Management_App
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
             this.iconPictureBox2.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox2.IconSize = 87;
-            this.iconPictureBox2.Location = new System.Drawing.Point(342, 45);
+            this.iconPictureBox2.IconSize = 84;
+            this.iconPictureBox2.Location = new System.Drawing.Point(411, 30);
             this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(107, 87);
+            this.iconPictureBox2.Size = new System.Drawing.Size(84, 87);
             this.iconPictureBox2.TabIndex = 17;
             this.iconPictureBox2.TabStop = false;
             // 
@@ -90,7 +90,7 @@ namespace Loan_Management_App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel3);
             this.Name = "totalBorrowed";
-            this.Size = new System.Drawing.Size(449, 167);
+            this.Size = new System.Drawing.Size(495, 117);
             this.Load += new System.EventHandler(this.totalBorrowed_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

@@ -30,8 +30,8 @@ namespace Loan_Management_App
             {
                 //Open Connection
                 con.Open();
-                string dataTable = "SELECT payLogs.payLogsID as 'Pay Logs ID',loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
-                    " 'Payment Amount', payLogs.oo as '--',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
+                string dataTable = "SELECT payLogs.payLogsID as 'Pay Logs ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name',payLogs.payment as" +
+                    " 'Payment Amount',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment', payLogs.balance as 'Balance' " +
                     "from borrower,payLogs,loans where borrower.borrowerID = payLogs.borrowerID AND loans.loanID = payLogs.loanID;";
                 adp = new MySqlDataAdapter(dataTable, con);
                 DataTable dtable = new DataTable();
@@ -43,29 +43,37 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Action Cannot Be Processed!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //Open Connection
-            con.Open();
-            string dataTable = "SELECT payLogs.payLogsID as 'Pay Logs ID',loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
-                    " 'Payment Amount', payLogs.oo as '--',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
-                    "from borrower,payLogs,loans where borrower.borrowerID = payLogs.borrowerID AND loans.loanID = payLogs.loanID;";
-            adp = new MySqlDataAdapter(dataTable, con);
-            DataTable dtable = new DataTable();
-            adp.Fill(dtable);
+            try
+            {
+                //Open Connection
+                con.Open();
+                string dataTable = "SELECT payLogs.payLogsID as 'Pay Logs ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name',payLogs.payment as" +
+                        " 'Payment Amount',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment', payLogs.balance as 'Balance' " +
+                        "from borrower,payLogs,loans where borrower.borrowerID = payLogs.borrowerID AND loans.loanID = payLogs.loanID;";
+                adp = new MySqlDataAdapter(dataTable, con);
+                DataTable dtable = new DataTable();
+                adp.Fill(dtable);
 
-            //fills the datagridview
-            dataGridViewPayLogs.DataSource = dtable;
-            con.Close();
+                //fills the datagridview
+                dataGridViewPayLogs.DataSource = dtable;
+                con.Close();
 
-            //clears search fields
-            searchBy.Text = "";
-            txtSearch.Text = "";
+                //clears search fields
+                searchBy.Text = "";
+                txtSearch.Text = "";
+            }
+            catch
+            {
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                con.Close();
+            }
         }
 
         private void dataGridViewPayLogs_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -109,37 +117,46 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Failed To Delete!", "Delete Unsucessfull!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
         }
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            if (searchBy.Text == "")
+            try
             {
-                MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                searchBy.Focus();
-            }
-            else if (txtSearch.Text == "")
-            {
-                MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSearch.Focus();
-            }
-            else
-            {
-                con.Open();
-                string dataTable = "SELECT payLogs.payLogsID as 'Pay logs ID',loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', payLogs.o as '-',payLogs.payment as" +
-                    " 'Payment Amount', payLogs.oo as '--',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment',payLogs.ooo as '---', payLogs.balance as 'Balance' " +
-                    "from borrower,payLogs,loans where borrower.borrowerID = payLogs.borrowerID AND loans.loanID = payLogs.loanID AND loans." + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
-                adp = new MySqlDataAdapter(dataTable, con);
-                DataTable dtable = new DataTable();
-                adp.Fill(dtable);
+                if (searchBy.Text == "")
+                {
+                    MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    searchBy.Focus();
+                }
+                else if (txtSearch.Text == "")
+                {
+                    MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSearch.Focus();
+                }
+                else
+                {
+                    con.Open();
+                    string dataTable = "SELECT payLogs.payLogsID as 'Pay logs ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name',payLogs.payment as" +
+                        " 'Payment Amount',DATE_FORMAT(payLogs.dateOfPayment, '%m/%d/%Y') as 'Date of Payment', payLogs.balance as 'Balance' " +
+                        "from borrower,payLogs,loans where borrower.borrowerID = payLogs.borrowerID AND loans.loanID = payLogs.loanID AND loans." + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
+                    adp = new MySqlDataAdapter(dataTable, con);
+                    DataTable dtable = new DataTable();
+                    adp.Fill(dtable);
 
-                //fills the datagridview
-                dataGridViewPayLogs.DataSource = dtable;
+                    //fills the datagridview
+                    dataGridViewPayLogs.DataSource = dtable;
+                    con.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
+            
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -171,7 +188,16 @@ namespace Loan_Management_App
                     ExcelApp.Application.Workbooks.Add(Type.Missing);
 
                     //Change properties of the workbook
-                    ExcelApp.Columns.ColumnWidth = 20;
+                    //Change Column Width
+                    ExcelApp.Columns.ColumnWidth = 11;
+                    //Change Font Size
+                    ExcelApp.Rows.Style.Font.Size = 14;
+
+                    //Alignment Center
+                    ExcelApp.Rows.HorizontalAlignment = -4108;
+                    ExcelApp.Rows.VerticalAlignment = -4108;
+
+                    ExcelApp.Rows.Worksheet.PageSetup.PrintGridlines = true;
 
                     //Storing header Part in Excel
                     for (int i = 1; i < dataGridViewPayLogs.Columns.Count + 1; i++)
@@ -195,6 +221,30 @@ namespace Loan_Management_App
 
                 }
             }
+        }
+
+        private void dataGridViewPayLogs_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dataGridViewPayLogs.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.MediumPurple;
+                dataGridViewPayLogs.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+            }
+        }
+
+        private void dataGridViewPayLogs_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dataGridViewPayLogs.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                dataGridViewPayLogs.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

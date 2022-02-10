@@ -58,7 +58,7 @@ namespace Loan_Management_App
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1009, 50);
+            this.panel6.Size = new System.Drawing.Size(1152, 50);
             this.panel6.TabIndex = 2;
             // 
             // btn_search
@@ -71,7 +71,7 @@ namespace Loan_Management_App
             this.btn_search.IconColor = System.Drawing.Color.Black;
             this.btn_search.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_search.IconSize = 35;
-            this.btn_search.Location = new System.Drawing.Point(944, 4);
+            this.btn_search.Location = new System.Drawing.Point(1083, 4);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(51, 43);
             this.btn_search.TabIndex = 14;
@@ -82,7 +82,7 @@ namespace Loan_Management_App
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(561, 11);
+            this.label9.Location = new System.Drawing.Point(700, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 23);
             this.label9.TabIndex = 13;
@@ -92,25 +92,24 @@ namespace Loan_Management_App
             // 
             this.searchBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
             this.searchBy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchBy.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.searchBy.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.searchBy.FormattingEnabled = true;
             this.searchBy.Items.AddRange(new object[] {
             "BorrowerID",
             "FirstName\t",
             "LastName"});
-            this.searchBy.Location = new System.Drawing.Point(656, 8);
+            this.searchBy.Location = new System.Drawing.Point(795, 8);
             this.searchBy.Name = "searchBy";
-            this.searchBy.Size = new System.Drawing.Size(121, 36);
+            this.searchBy.Size = new System.Drawing.Size(121, 39);
             this.searchBy.TabIndex = 12;
             // 
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.txtSearch.Location = new System.Drawing.Point(783, 8);
+            this.txtSearch.Location = new System.Drawing.Point(922, 5);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(155, 36);
+            this.txtSearch.Size = new System.Drawing.Size(155, 43);
             this.txtSearch.TabIndex = 11;
             // 
             // btnRefresh
@@ -121,7 +120,7 @@ namespace Loan_Management_App
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9.8F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.btnRefresh.Location = new System.Drawing.Point(439, 4);
+            this.btnRefresh.Location = new System.Drawing.Point(578, 4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(105, 40);
             this.btnRefresh.TabIndex = 2;
@@ -168,11 +167,11 @@ namespace Loan_Management_App
             this.dataGridViewBorrower.AllowUserToResizeColumns = false;
             this.dataGridViewBorrower.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridViewBorrower.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewBorrower.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBorrower.BackgroundColor = System.Drawing.Color.White;
@@ -180,8 +179,9 @@ namespace Loan_Management_App
             this.dataGridViewBorrower.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.1F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkGreen;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -191,8 +191,8 @@ namespace Loan_Management_App
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewBorrower.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewBorrower.Dock = System.Windows.Forms.DockStyle.Top;
@@ -201,12 +201,14 @@ namespace Loan_Management_App
             this.dataGridViewBorrower.Name = "dataGridViewBorrower";
             this.dataGridViewBorrower.RowHeadersVisible = false;
             this.dataGridViewBorrower.RowHeadersWidth = 51;
-            this.dataGridViewBorrower.RowTemplate.Height = 24;
+            this.dataGridViewBorrower.RowTemplate.Height = 30;
             this.dataGridViewBorrower.ShowEditingIcon = false;
-            this.dataGridViewBorrower.Size = new System.Drawing.Size(1009, 508);
+            this.dataGridViewBorrower.Size = new System.Drawing.Size(1152, 508);
             this.dataGridViewBorrower.TabIndex = 3;
             this.dataGridViewBorrower.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBorrower_CellClick);
             this.dataGridViewBorrower.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBorrower_CellDoubleClick);
+            this.dataGridViewBorrower.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBorrower_CellMouseLeave);
+            this.dataGridViewBorrower.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewBorrower_CellMouseMove);
             this.dataGridViewBorrower.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewBorrower_DataBindingComplete);
             // 
             // borrower
@@ -216,7 +218,7 @@ namespace Loan_Management_App
             this.Controls.Add(this.dataGridViewBorrower);
             this.Controls.Add(this.panel6);
             this.Name = "borrower";
-            this.Size = new System.Drawing.Size(1009, 612);
+            this.Size = new System.Drawing.Size(1152, 612);
             this.Load += new System.EventHandler(this.borrower_Load);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();

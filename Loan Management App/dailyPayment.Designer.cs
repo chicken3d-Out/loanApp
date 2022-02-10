@@ -45,17 +45,17 @@ namespace Loan_Management_App
             this.panel4.Controls.Add(this.iconPictureBox3);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(449, 167);
+            this.panel4.Size = new System.Drawing.Size(495, 117);
             this.panel4.TabIndex = 21;
             // 
             // lblDailyPayment
             // 
             this.lblDailyPayment.AutoSize = true;
-            this.lblDailyPayment.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDailyPayment.Font = new System.Drawing.Font("Courier New", 40F, System.Drawing.FontStyle.Bold);
             this.lblDailyPayment.ForeColor = System.Drawing.Color.Black;
-            this.lblDailyPayment.Location = new System.Drawing.Point(39, 51);
+            this.lblDailyPayment.Location = new System.Drawing.Point(29, 41);
             this.lblDailyPayment.Name = "lblDailyPayment";
-            this.lblDailyPayment.Size = new System.Drawing.Size(86, 90);
+            this.lblDailyPayment.Size = new System.Drawing.Size(73, 76);
             this.lblDailyPayment.TabIndex = 19;
             this.lblDailyPayment.Text = "0";
             this.lblDailyPayment.Click += new System.EventHandler(this.lblDailyPayment_Click);
@@ -78,9 +78,9 @@ namespace Loan_Management_App
             this.iconPictureBox3.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox3.IconSize = 87;
-            this.iconPictureBox3.Location = new System.Drawing.Point(342, 51);
+            this.iconPictureBox3.Location = new System.Drawing.Point(400, 30);
             this.iconPictureBox3.Name = "iconPictureBox3";
-            this.iconPictureBox3.Size = new System.Drawing.Size(107, 87);
+            this.iconPictureBox3.Size = new System.Drawing.Size(92, 87);
             this.iconPictureBox3.TabIndex = 17;
             this.iconPictureBox3.TabStop = false;
             // 
@@ -90,7 +90,7 @@ namespace Loan_Management_App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel4);
             this.Name = "dailyPayment";
-            this.Size = new System.Drawing.Size(449, 167);
+            this.Size = new System.Drawing.Size(495, 117);
             this.Load += new System.EventHandler(this.dailyPayment_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

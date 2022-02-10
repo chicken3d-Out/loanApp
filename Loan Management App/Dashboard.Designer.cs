@@ -30,6 +30,7 @@ namespace Loan_Management_App
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btnPayLogs = new FontAwesome.Sharp.IconButton();
@@ -38,15 +39,14 @@ namespace Loan_Management_App
             this.btnBorrower = new FontAwesome.Sharp.IconButton();
             this.btnStatistics = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblSection = new System.Windows.Forms.Label();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btn_Exit = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblDate = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,10 +65,11 @@ namespace Loan_Management_App
             this.payback1 = new Loan_Management_App.payback();
             this.loans1 = new Loan_Management_App.loans();
             this.borrower1 = new Loan_Management_App.borrower();
+            this.btnLogOut = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
@@ -79,6 +80,7 @@ namespace Loan_Management_App
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.sidePanel);
             this.panel1.Controls.Add(this.btnPayLogs);
             this.panel1.Controls.Add(this.btnPayback);
@@ -219,17 +221,27 @@ namespace Loan_Management_App
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(208)))));
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.iconPictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(348, 203);
             this.panel2.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(123, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -239,9 +251,9 @@ namespace Loan_Management_App
             this.label8.Location = new System.Drawing.Point(142, 148);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 41);
+            this.label8.Size = new System.Drawing.Size(194, 41);
             this.label8.TabIndex = 4;
-            this.label8.Text = "App";
+            this.label8.Text = "SYSTEM INC.";
             // 
             // label7
             // 
@@ -251,9 +263,9 @@ namespace Loan_Management_App
             this.label7.Location = new System.Drawing.Point(142, 107);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(202, 41);
+            this.label7.Size = new System.Drawing.Size(147, 41);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Management";
+            this.label7.Text = "LENDING";
             // 
             // label2
             // 
@@ -263,9 +275,9 @@ namespace Loan_Management_App
             this.label2.Location = new System.Drawing.Point(142, 66);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 41);
+            this.label2.Size = new System.Drawing.Size(170, 41);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Loan";
+            this.label2.Text = "JUDEARCO";
             // 
             // panel4
             // 
@@ -288,30 +300,14 @@ namespace Loan_Management_App
             this.lblSection.TabIndex = 0;
             this.lblSection.Text = "label1";
             // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(208)))));
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.Black;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.University;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 94;
-            this.iconPictureBox1.Location = new System.Drawing.Point(40, 83);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(94, 96);
-            this.iconPictureBox1.TabIndex = 0;
-            this.iconPictureBox1.TabStop = false;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkGreen;
             this.panel3.Controls.Add(this.iconButton1);
-            this.panel3.Controls.Add(this.btn_Exit);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(348, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1030, 54);
+            this.panel3.Size = new System.Drawing.Size(1191, 54);
             this.panel3.TabIndex = 3;
             // 
             // iconButton1
@@ -323,29 +319,13 @@ namespace Loan_Management_App
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 35;
-            this.iconButton1.Location = new System.Drawing.Point(964, 9);
+            this.iconButton1.Location = new System.Drawing.Point(1134, 9);
             this.iconButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(45, 36);
             this.iconButton1.TabIndex = 12;
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // btn_Exit
-            // 
-            this.btn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Exit.FlatAppearance.BorderSize = 0;
-            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Exit.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btn_Exit.IconColor = System.Drawing.Color.Black;
-            this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Exit.IconSize = 35;
-            this.btn_Exit.Location = new System.Drawing.Point(1051, 9);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(45, 36);
-            this.btn_Exit.TabIndex = 5;
-            this.btn_Exit.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
@@ -361,7 +341,7 @@ namespace Loan_Management_App
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(554, 97);
+            this.panel6.Size = new System.Drawing.Size(624, 97);
             this.panel6.TabIndex = 1;
             // 
             // lblDate
@@ -370,7 +350,7 @@ namespace Loan_Management_App
             this.lblDate.BackColor = System.Drawing.Color.White;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.lblDate.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblDate.Location = new System.Drawing.Point(11, 29);
+            this.lblDate.Location = new System.Drawing.Point(44, 26);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(127, 46);
             this.lblDate.TabIndex = 2;
@@ -396,7 +376,7 @@ namespace Loan_Management_App
             this.iconPictureBox3.IconColor = System.Drawing.Color.DarkGreen;
             this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox3.IconSize = 77;
-            this.iconPictureBox3.Location = new System.Drawing.Point(466, 16);
+            this.iconPictureBox3.Location = new System.Drawing.Point(527, 11);
             this.iconPictureBox3.Name = "iconPictureBox3";
             this.iconPictureBox3.Size = new System.Drawing.Size(85, 77);
             this.iconPictureBox3.TabIndex = 2;
@@ -460,13 +440,13 @@ namespace Loan_Management_App
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(348, 54);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1030, 97);
+            this.panel5.Size = new System.Drawing.Size(1191, 97);
             this.panel5.TabIndex = 4;
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.Gray;
-            this.panel7.Location = new System.Drawing.Point(560, 0);
+            this.panel7.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel7.Location = new System.Drawing.Point(630, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(16, 98);
             this.panel7.TabIndex = 3;
@@ -477,7 +457,7 @@ namespace Loan_Management_App
             this.lblTime.BackColor = System.Drawing.Color.White;
             this.lblTime.Font = new System.Drawing.Font("Courier New", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblTime.Location = new System.Drawing.Point(610, 29);
+            this.lblTime.Location = new System.Drawing.Point(731, 26);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(204, 49);
             this.lblTime.TabIndex = 2;
@@ -491,7 +471,7 @@ namespace Loan_Management_App
             this.iconPictureBox2.IconColor = System.Drawing.Color.DarkGreen;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 78;
-            this.iconPictureBox2.Location = new System.Drawing.Point(918, 16);
+            this.iconPictureBox2.Location = new System.Drawing.Point(1039, 13);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(91, 78);
             this.iconPictureBox2.TabIndex = 2;
@@ -505,43 +485,66 @@ namespace Loan_Management_App
             // 
             this.statistics1.Location = new System.Drawing.Point(348, 148);
             this.statistics1.Name = "statistics1";
-            this.statistics1.Size = new System.Drawing.Size(1009, 612);
+            this.statistics1.Size = new System.Drawing.Size(1152, 612);
             this.statistics1.TabIndex = 9;
             // 
             // paylogs1
             // 
             this.paylogs1.Location = new System.Drawing.Point(348, 148);
             this.paylogs1.Name = "paylogs1";
-            this.paylogs1.Size = new System.Drawing.Size(1009, 612);
+            this.paylogs1.Size = new System.Drawing.Size(1152, 612);
             this.paylogs1.TabIndex = 8;
             // 
             // payback1
             // 
             this.payback1.Location = new System.Drawing.Point(348, 148);
             this.payback1.Name = "payback1";
-            this.payback1.Size = new System.Drawing.Size(1009, 612);
+            this.payback1.Size = new System.Drawing.Size(1152, 612);
             this.payback1.TabIndex = 7;
             // 
             // loans1
             // 
             this.loans1.Location = new System.Drawing.Point(348, 148);
             this.loans1.Name = "loans1";
-            this.loans1.Size = new System.Drawing.Size(1009, 612);
+            this.loans1.Size = new System.Drawing.Size(1152, 612);
             this.loans1.TabIndex = 6;
             // 
             // borrower1
             // 
             this.borrower1.Location = new System.Drawing.Point(348, 148);
             this.borrower1.Name = "borrower1";
-            this.borrower1.Size = new System.Drawing.Size(1009, 612);
+            this.borrower1.Size = new System.Drawing.Size(1152, 612);
             this.borrower1.TabIndex = 5;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.btnLogOut.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btnLogOut.IconColor = System.Drawing.Color.DarkGreen;
+            this.btnLogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLogOut.IconSize = 45;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(0, 578);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(348, 75);
+            this.btnLogOut.TabIndex = 7;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1378, 790);
+            this.ClientSize = new System.Drawing.Size(1539, 790);
             this.Controls.Add(this.statistics1);
             this.Controls.Add(this.paylogs1);
             this.Controls.Add(this.payback1);
@@ -558,9 +561,9 @@ namespace Loan_Management_App
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -587,9 +590,7 @@ namespace Loan_Management_App
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblSection;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Panel panel3;
-        private FontAwesome.Sharp.IconButton btn_Exit;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label6;
@@ -609,5 +610,7 @@ namespace Loan_Management_App
         private statistics statistics1;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton btnLogOut;
     }
 }

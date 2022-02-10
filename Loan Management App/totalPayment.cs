@@ -28,7 +28,7 @@ namespace Loan_Management_App
             {
                 con.Open();
                 //Get Number of Customers
-                string noOfCustomers = "SELECT IFNULL(SUM(payment), 0) as 'totalPayment' from paylogs;";
+                string noOfCustomers = "SELECT IFNULL(SUM(totalPayment), 0) as 'totalPayment' from loans;";
                 cmd = new MySqlCommand(noOfCustomers, con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read() == true)
@@ -39,7 +39,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Total Payment Query Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
         }
@@ -50,7 +50,7 @@ namespace Loan_Management_App
             {
                 con.Open();
                 //Get Number of Customers
-                string noOfCustomers = "SELECT IFNULL(SUM(payment), 0) as 'totalPayment' from paylogs;";
+                string noOfCustomers = "SELECT IFNULL(SUM(totalPayment), 0) as 'totalPayment' from loans;";
                 cmd = new MySqlCommand(noOfCustomers, con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read() == true)
@@ -61,7 +61,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Total Payment Query Error!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
 

@@ -28,10 +28,11 @@ namespace Loan_Management_App
             try
             {
                 //Open Connection
+                
                 con.Open();
                 string dataTable = "SELECT borrowerID as 'Borrower ID', firstName as 'First Name', lastName as 'Last Name', middleName as 'Middle Name'," +
-                    " age as 'Age', gender as 'Gender',street as 'Street', barangay as 'Barangay', municipality as 'Municipality', province as 'Province', " +
-                    "zipcode as 'Zip Code', phoneNo as 'Phone No.', occupation as 'Occupation' from borrower;";
+                    " gender as 'Gender',street as 'Street', barangay as 'Barangay', municipality as 'Munici pality', province as 'Province', " +
+                    "zipcode as 'Zip Code', phoneNo as 'Phone No.', occupation as 'Occu pation', collectorInCharge as 'Collector' from borrower;";
                 adp = new MySqlDataAdapter(dataTable, con);
                 DataTable dtable = new DataTable();
                 adp.Fill(dtable);
@@ -39,10 +40,11 @@ namespace Loan_Management_App
                 //fills the datagridview
                 dataGridViewBorrower.DataSource = dtable;
                 con.Close();
+
             }
             catch
             {
-                MessageBox.Show("Action Cannot Be Processed!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
 
@@ -50,22 +52,30 @@ namespace Loan_Management_App
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //Open Connection
-            con.Open();
-            string dataTable = "SELECT borrowerID as 'Borrower ID', firstName as 'First Name', lastName as 'Last Name', middleName as 'Middle Name'," +
-                    " age as 'Age', gender as 'Gender',street as 'Street', barangay as 'Barangay', municipality as 'Municipality', province as 'Province', " +
-                    "zipcode as 'Zip Code', phoneNo as 'Phone No.', occupation as 'Occupation' from borrower;";
-            adp = new MySqlDataAdapter(dataTable, con);
-            DataTable dtable = new DataTable();
-            adp.Fill(dtable);
+            try
+            {
+                //Open Connection
+                con.Open();
+                string dataTable = "SELECT borrowerID as 'Borrower ID', firstName as 'First Name', lastName as 'Last Name', middleName as 'Middle Name'," +
+                    " gender as 'Gender',street as 'Street', barangay as 'Barangay', municipality as 'Munici pality', province as 'Province', " +
+                        "zipcode as 'Zip Code', phoneNo as 'Phone No.', occupation as 'Occu pation', collectorInCharge as 'Collector' from borrower;";
+                adp = new MySqlDataAdapter(dataTable, con);
+                DataTable dtable = new DataTable();
+                adp.Fill(dtable);
 
-            //fills the datagridview
-            dataGridViewBorrower.DataSource = dtable;
-            con.Close();
+                //fills the datagridview
+                dataGridViewBorrower.DataSource = dtable;
+                con.Close();
 
-            //clears search fields
-            searchBy.Text = "";
-            txtSearch.Text = "";
+                //clears search fields
+                searchBy.Text = "";
+                txtSearch.Text = "";
+            }
+            catch
+            {
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                con.Close();
+            }  
         }
 
         private void dataGridViewBorrower_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -109,37 +119,45 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Failed To Delete!", "Delete Unsucessfull!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
         }
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            if (searchBy.Text == "")
+            try
             {
-                MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                searchBy.Focus();
-            }
-            else if (txtSearch.Text == "")
-            {
-                MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSearch.Focus();
-            }
-            else
-            {
-                con.Open();
-                string dataTable = "SELECT borrowerID as 'Borrower ID', firstName as 'First Name', lastName as 'Last Name', middleName as 'Middle Name'," +
-                    " age as 'Age', gender as 'Gender',street as 'Street', barangay as 'Barangay', municipality as 'Municipality', province as 'Province', " +
-                    "zipcode as 'Zip Code', phoneNo as 'Phone No.', occupation as 'Occupation' from borrower WHERE " + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
-                adp = new MySqlDataAdapter(dataTable, con);
-                DataTable dtable = new DataTable();
-                adp.Fill(dtable);
+                if (searchBy.Text == "")
+                {
+                    MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    searchBy.Focus();
+                }
+                else if (txtSearch.Text == "")
+                {
+                    MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSearch.Focus();
+                }
+                else
+                {
+                    con.Open();
+                    string dataTable = "SELECT borrowerID as 'Borrower ID', firstName as 'First Name', lastName as 'Last Name', middleName as 'Middle Name', " +
+                        "gender as 'Gender',street as 'Street', barangay as 'Barangay', municipality as 'Munici pality', province as 'Province', " +
+                        "zipcode as 'Zip Code', phoneNo as 'Phone No.', occupation as 'Occu pation', collectorInCharge as 'Collector') from borrower WHERE " + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
+                    adp = new MySqlDataAdapter(dataTable, con);
+                    DataTable dtable = new DataTable();
+                    adp.Fill(dtable);
 
-                //fills the datagridview
-                dataGridViewBorrower.DataSource = dtable;
+                    //fills the datagridview
+                    dataGridViewBorrower.DataSource = dtable;
+                    con.Close();
+                }
+            }catch
+            {
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
-            }
+
+            } 
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -170,15 +188,15 @@ namespace Loan_Management_App
             editBorrower.txtFIrstname.Text = Convert.ToString(getData.Cells[1].Value);
             editBorrower.txtLastname.Text = Convert.ToString(getData.Cells[2].Value);
             editBorrower.txtMiddlename.Text = Convert.ToString(getData.Cells[3].Value);
-            editBorrower.txtAge.Text = Convert.ToString(getData.Cells[4].Value);
-            editBorrower.txtGender.Text = Convert.ToString(getData.Cells[5].Value);
-            editBorrower.txtStreet.Text = Convert.ToString(getData.Cells[6].Value);
-            editBorrower.txtBarangay.Text = Convert.ToString(getData.Cells[7].Value);
-            editBorrower.txtMunicipality.Text = Convert.ToString(getData.Cells[8].Value);
-            editBorrower.txtProvince.Text = Convert.ToString(getData.Cells[9].Value);
-            editBorrower.txtZipCode.Text = Convert.ToString(getData.Cells[10].Value);
-            editBorrower.txtPhoneNo.Text = Convert.ToString(getData.Cells[11].Value);
-            editBorrower.txtOccupation.Text = Convert.ToString(getData.Cells[12].Value);
+            editBorrower.txtGender.Text = Convert.ToString(getData.Cells[4].Value);
+            editBorrower.txtStreet.Text = Convert.ToString(getData.Cells[5].Value);
+            editBorrower.txtBarangay.Text = Convert.ToString(getData.Cells[6].Value);
+            editBorrower.txtMunicipality.Text = Convert.ToString(getData.Cells[7].Value);
+            editBorrower.txtProvince.Text = Convert.ToString(getData.Cells[8].Value);
+            editBorrower.txtZipCode.Text = Convert.ToString(getData.Cells[9].Value);
+            editBorrower.txtPhoneNo.Text = Convert.ToString(getData.Cells[10].Value);
+            editBorrower.txtOccupation.Text = Convert.ToString(getData.Cells[11].Value);
+            editBorrower.collector.Text = Convert.ToString(getData.Cells[12].Value);
 
             //Edit Mode
             editBorrower.lblUpperLabel.Text = "Update Borrower Details";
@@ -187,6 +205,24 @@ namespace Loan_Management_App
 
             //shows the edit form
             editBorrower.ShowDialog();
+        }
+
+        private void dataGridViewBorrower_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dataGridViewBorrower.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.MediumPurple;
+                dataGridViewBorrower.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+            }
+        }
+
+        private void dataGridViewBorrower_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dataGridViewBorrower.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                dataGridViewBorrower.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+            }
         }
     }
 }

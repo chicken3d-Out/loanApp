@@ -30,12 +30,13 @@ namespace Loan_Management_App
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Exit = new FontAwesome.Sharp.IconButton();
             this.lblUpperLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.collector = new System.Windows.Forms.ComboBox();
             this.txtGender = new System.Windows.Forms.ComboBox();
             this.txtOccupation = new System.Windows.Forms.TextBox();
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
-            this.txtAge = new System.Windows.Forms.TextBox();
             this.txtMiddlename = new System.Windows.Forms.TextBox();
             this.txtLastname = new System.Windows.Forms.TextBox();
             this.txtFIrstname = new System.Windows.Forms.TextBox();
@@ -71,12 +72,30 @@ namespace Loan_Management_App
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel1.Controls.Add(this.btn_Exit);
             this.panel1.Controls.Add(this.lblUpperLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 50);
             this.panel1.TabIndex = 16;
+            // 
+            // btn_Exit
+            // 
+            this.btn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Exit.FlatAppearance.BorderSize = 0;
+            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exit.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btn_Exit.IconColor = System.Drawing.Color.Black;
+            this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Exit.IconSize = 35;
+            this.btn_Exit.Location = new System.Drawing.Point(953, 6);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(45, 36);
+            this.btn_Exit.TabIndex = 12;
+            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // lblUpperLabel
             // 
@@ -92,10 +111,10 @@ namespace Loan_Management_App
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.collector);
             this.panel2.Controls.Add(this.txtGender);
             this.panel2.Controls.Add(this.txtOccupation);
             this.panel2.Controls.Add(this.txtPhoneNo);
-            this.panel2.Controls.Add(this.txtAge);
             this.panel2.Controls.Add(this.txtMiddlename);
             this.panel2.Controls.Add(this.txtLastname);
             this.panel2.Controls.Add(this.txtFIrstname);
@@ -111,88 +130,91 @@ namespace Loan_Management_App
             this.panel2.Size = new System.Drawing.Size(462, 423);
             this.panel2.TabIndex = 17;
             // 
+            // collector
+            // 
+            this.collector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.collector.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.collector.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.collector.FormattingEnabled = true;
+            this.collector.Items.AddRange(new object[] {
+            "MARLON",
+            "NORMAN",
+            "PERMEJO",
+            "JOMAR",
+            "PIDO"});
+            this.collector.Location = new System.Drawing.Point(233, 374);
+            this.collector.Name = "collector";
+            this.collector.Size = new System.Drawing.Size(173, 39);
+            this.collector.TabIndex = 13;
+            this.collector.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.collector_KeyPress);
+            // 
             // txtGender
             // 
             this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
             this.txtGender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtGender.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.txtGender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.txtGender.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtGender.FormattingEnabled = true;
             this.txtGender.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.txtGender.Location = new System.Drawing.Point(233, 245);
+            this.txtGender.Location = new System.Drawing.Point(232, 198);
             this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(169, 36);
+            this.txtGender.Size = new System.Drawing.Size(169, 45);
             this.txtGender.TabIndex = 5;
             this.txtGender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGender_KeyPress);
             // 
             // txtOccupation
             // 
             this.txtOccupation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtOccupation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOccupation.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.txtOccupation.Location = new System.Drawing.Point(233, 365);
+            this.txtOccupation.Location = new System.Drawing.Point(232, 318);
             this.txtOccupation.Name = "txtOccupation";
-            this.txtOccupation.Size = new System.Drawing.Size(169, 36);
+            this.txtOccupation.Size = new System.Drawing.Size(169, 43);
             this.txtOccupation.TabIndex = 7;
             // 
             // txtPhoneNo
             // 
             this.txtPhoneNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtPhoneNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhoneNo.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.txtPhoneNo.Location = new System.Drawing.Point(233, 306);
+            this.txtPhoneNo.Location = new System.Drawing.Point(232, 259);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(169, 36);
+            this.txtPhoneNo.Size = new System.Drawing.Size(169, 43);
             this.txtPhoneNo.TabIndex = 6;
             this.txtPhoneNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNo_KeyPress);
-            // 
-            // txtAge
-            // 
-            this.txtAge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAge.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
-            this.txtAge.Location = new System.Drawing.Point(233, 187);
-            this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(169, 36);
-            this.txtAge.TabIndex = 4;
-            this.txtAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAge_KeyPress);
             // 
             // txtMiddlename
             // 
             this.txtMiddlename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtMiddlename.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMiddlename.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtMiddlename.Location = new System.Drawing.Point(233, 134);
             this.txtMiddlename.Name = "txtMiddlename";
-            this.txtMiddlename.Size = new System.Drawing.Size(169, 36);
+            this.txtMiddlename.Size = new System.Drawing.Size(169, 43);
             this.txtMiddlename.TabIndex = 3;
             // 
             // txtLastname
             // 
             this.txtLastname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtLastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLastname.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtLastname.Location = new System.Drawing.Point(233, 81);
             this.txtLastname.Name = "txtLastname";
-            this.txtLastname.Size = new System.Drawing.Size(169, 36);
+            this.txtLastname.Size = new System.Drawing.Size(169, 43);
             this.txtLastname.TabIndex = 2;
             // 
             // txtFIrstname
             // 
             this.txtFIrstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtFIrstname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFIrstname.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtFIrstname.Location = new System.Drawing.Point(233, 22);
             this.txtFIrstname.Name = "txtFIrstname";
-            this.txtFIrstname.Size = new System.Drawing.Size(169, 36);
+            this.txtFIrstname.Size = new System.Drawing.Size(169, 43);
             this.txtFIrstname.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(64, 365);
+            this.label7.Location = new System.Drawing.Point(63, 318);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 32);
             this.label7.TabIndex = 0;
@@ -202,7 +224,7 @@ namespace Loan_Management_App
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(64, 306);
+            this.label6.Location = new System.Drawing.Point(63, 259);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(136, 32);
             this.label6.TabIndex = 0;
@@ -212,7 +234,7 @@ namespace Loan_Management_App
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(92, 245);
+            this.label5.Location = new System.Drawing.Point(91, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 32);
             this.label5.TabIndex = 0;
@@ -222,11 +244,11 @@ namespace Loan_Management_App
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(126, 187);
+            this.label4.Location = new System.Drawing.Point(-6, 377);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 32);
+            this.label4.Size = new System.Drawing.Size(238, 32);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Age :";
+            this.label4.Text = "Collector In Charge :";
             // 
             // label14
             // 
@@ -281,52 +303,47 @@ namespace Loan_Management_App
             // txtZipCode
             // 
             this.txtZipCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtZipCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtZipCode.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtZipCode.Location = new System.Drawing.Point(231, 348);
             this.txtZipCode.Name = "txtZipCode";
-            this.txtZipCode.Size = new System.Drawing.Size(169, 36);
+            this.txtZipCode.Size = new System.Drawing.Size(169, 43);
             this.txtZipCode.TabIndex = 12;
             this.txtZipCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtZipCode_KeyPress);
             // 
             // txtProvince
             // 
             this.txtProvince.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtProvince.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProvince.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtProvince.Location = new System.Drawing.Point(231, 283);
             this.txtProvince.Name = "txtProvince";
-            this.txtProvince.Size = new System.Drawing.Size(169, 36);
+            this.txtProvince.Size = new System.Drawing.Size(169, 43);
             this.txtProvince.TabIndex = 11;
             // 
             // txtMunicipality
             // 
             this.txtMunicipality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtMunicipality.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMunicipality.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtMunicipality.Location = new System.Drawing.Point(231, 221);
             this.txtMunicipality.Name = "txtMunicipality";
-            this.txtMunicipality.Size = new System.Drawing.Size(169, 36);
+            this.txtMunicipality.Size = new System.Drawing.Size(169, 43);
             this.txtMunicipality.TabIndex = 10;
             // 
             // txtBarangay
             // 
             this.txtBarangay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtBarangay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBarangay.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtBarangay.Location = new System.Drawing.Point(231, 160);
             this.txtBarangay.Name = "txtBarangay";
-            this.txtBarangay.Size = new System.Drawing.Size(169, 36);
+            this.txtBarangay.Size = new System.Drawing.Size(169, 43);
             this.txtBarangay.TabIndex = 9;
             // 
             // txtStreet
             // 
             this.txtStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtStreet.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStreet.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtStreet.Location = new System.Drawing.Point(231, 96);
             this.txtStreet.Name = "txtStreet";
-            this.txtStreet.Size = new System.Drawing.Size(169, 36);
+            this.txtStreet.Size = new System.Drawing.Size(169, 43);
             this.txtStreet.TabIndex = 8;
             // 
             // label8
@@ -461,7 +478,7 @@ namespace Loan_Management_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(208)))));
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1010, 578);
             this.Controls.Add(this.borrowerID);
             this.Controls.Add(this.lblEditMode);
@@ -512,7 +529,6 @@ namespace Loan_Management_App
         public System.Windows.Forms.Label borrowerID;
         public System.Windows.Forms.TextBox txtOccupation;
         public System.Windows.Forms.TextBox txtPhoneNo;
-        public System.Windows.Forms.TextBox txtAge;
         public System.Windows.Forms.TextBox txtLastname;
         public System.Windows.Forms.TextBox txtZipCode;
         public System.Windows.Forms.TextBox txtProvince;
@@ -522,5 +538,7 @@ namespace Loan_Management_App
         public System.Windows.Forms.TextBox txtMiddlename;
         public System.Windows.Forms.ComboBox txtGender;
         public System.Windows.Forms.Label lblUpperLabel;
+        private FontAwesome.Sharp.IconButton btn_Exit;
+        public System.Windows.Forms.ComboBox collector;
     }
 }

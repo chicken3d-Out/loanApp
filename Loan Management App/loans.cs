@@ -30,9 +30,9 @@ namespace Loan_Management_App
             {
                 //Open Connection
                 con.Open();
-                string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.borrowerID as BorrowerID,borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
-                    "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.daysRemaining as 'Days Remaining',loans.interest as 'Interest',loans.dailyPayment as " +
-                    "'Daily Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%m/%d/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate, '%m/%d/%Y') as 'Due Date' from borrower," +
+                string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
+                    "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.interest as 'Interest',loans.dailyPayment as " +
+                    "'Daily Payment',loans.totalPayment as 'Total Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%d/%m/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate, '%m/%d/%Y') as 'Due Date' from borrower," +
                     "loans where borrower.borrowerID = loans.borrowerID AND loans.balance != 0;";
                 adp = new MySqlDataAdapter(dataTable, con);
                 DataTable dtable = new DataTable();
@@ -51,23 +51,33 @@ namespace Loan_Management_App
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //Open Connection
-            con.Open();
-            string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.borrowerID as BorrowerID,borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
-                    "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.daysRemaining as 'Days Remaining',loans.interest as 'Interest',loans.dailyPayment as " +
-                    "'Daily Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%m/%d/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate,'%m/%d/%Y') as 'Due Date' from borrower," +
-                    "loans where borrower.borrowerID = loans.borrowerID AND loans.balance != 0;";
-            adp = new MySqlDataAdapter(dataTable, con);
-            DataTable dtable = new DataTable();
-            adp.Fill(dtable);
+            try
+            {
+                //Open Connection
+                con.Open();
+                string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
+                        "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.interest as 'Interest',loans.dailyPayment as " +
+                        "'Daily Payment',loans.totalPayment as 'Total Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%d/%m/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate,'%m/%d/%Y') as 'Due Date' from borrower," +
+                        "loans where borrower.borrowerID = loans.borrowerID AND loans.balance != 0;";
+                adp = new MySqlDataAdapter(dataTable, con);
+                DataTable dtable = new DataTable();
+                adp.Fill(dtable);
 
-            //fills the datagridview
-            dataGridViewLoans.DataSource = dtable;
-            con.Close();
+                //fills the datagridview
+                dataGridViewLoans.DataSource = dtable;
+                con.Close();
 
-            //clears search fields
-            searchBy.Text = "";
-            txtSearch.Text = "";
+                //clears search fields
+                searchBy.Text = "";
+                txtSearch.Text = "";
+                collector.Text = "";
+
+            }
+            catch
+            {
+                MessageBox.Show("REFRESH ERROR!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                con.Close();
+            }  
         }
 
         private void dataGridViewLoans_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -111,38 +121,47 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Failed To Delete!", "Delete Unsucessfull!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
         }
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            if (searchBy.Text == "")
+            try
             {
-                MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                searchBy.Focus();
-            }
-            else if (txtSearch.Text == "")
-            {
-                MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSearch.Focus();
-            }
-            else
-            {
-                con.Open();
-                string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.borrowerID as BorrowerID,borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
-                    "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.daysRemaining as 'Days Remaining',loans.interest as 'Interest',loans.dailyPayment as " +
-                    "'Daily Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%m/%d/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate, '%m/%d/%Y') as 'Due Date' from borrower," +
-                    "loans where borrower.borrowerID = loans.borrowerID AND loans.balance != 0 AND borrower." + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
-                adp = new MySqlDataAdapter(dataTable, con);
-                DataTable dtable = new DataTable();
-                adp.Fill(dtable);
+                if (searchBy.Text == "")
+                {
+                    MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    searchBy.Focus();
+                }
+                else if (txtSearch.Text == "")
+                {
+                    MessageBox.Show("Don't Leave the Fields Empty!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSearch.Focus();
+                }
+                else
+                {
+                    con.Open();
+                    string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
+                        "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.interest as 'Interest',loans.dailyPayment as " +
+                        "'Daily Payment',loans.totalPayment as 'Total Payment',loans.balance as 'Balance',DATE_FORMAT(loans.dateBorrow, '%d/%m/%Y') as 'Date Borrowed', DATE_FORMAT(loans.duedate, '%m/%d/%Y') as 'Due Date' from borrower," +
+                        "loans where borrower.borrowerID = loans.borrowerID AND loans.balance != 0 AND borrower." + searchBy.Text + " LIKE '%" + txtSearch.Text + "%';";
+                    adp = new MySqlDataAdapter(dataTable, con);
+                    DataTable dtable = new DataTable();
+                    adp.Fill(dtable);
 
-                //fills the datagridview
-                dataGridViewLoans.DataSource = dtable;
+                    //fills the datagridview
+                    dataGridViewLoans.DataSource = dtable;
+                    con.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
+            
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -176,17 +195,18 @@ namespace Loan_Management_App
             DataGridViewRow getData = dataGridViewLoans.Rows[indexRow];
 
             //instantiate the value
-            viewLoans.lblFirstname.Text = Convert.ToString(getData.Cells[2].Value);
-            viewLoans.lblLastname.Text = Convert.ToString(getData.Cells[3].Value);
-            viewLoans.lblMiddlename.Text = Convert.ToString(getData.Cells[4].Value);
-            viewLoans.lblLoanAmount.Text = Convert.ToString(getData.Cells[5].Value);
-            viewLoans.lblDuration.Text = Convert.ToString(getData.Cells[6].Value);
-            viewLoans.lblDaysRemaining.Text = Convert.ToString(getData.Cells[7].Value);
-            viewLoans.lblInterestRate.Text = Convert.ToString(getData.Cells[8].Value);
-            viewLoans.lblDailyPayment.Text = Convert.ToString(getData.Cells[9].Value);
-            viewLoans.lblBalance.Text = Convert.ToString(getData.Cells[10].Value);
-            viewLoans.lblDateBorrowed.Text = Convert.ToString(getData.Cells[11].Value).Substring(0, 10);
-            viewLoans.lblDueDate.Text = Convert.ToString(getData.Cells[12].Value).Substring(0, 10);
+            viewLoans.lblFirstname.Text = Convert.ToString(getData.Cells[1].Value);
+            viewLoans.lblLastname.Text = Convert.ToString(getData.Cells[2].Value);
+            viewLoans.lblMiddlename.Text = Convert.ToString(getData.Cells[3].Value);
+            viewLoans.lblLoanAmount.Text = Convert.ToString(getData.Cells[4].Value);
+            viewLoans.lblDuration.Text = Convert.ToString(getData.Cells[5].Value);
+            //Days Remaining is Total Payment
+            viewLoans.lblDaysRemaining.Text = Convert.ToString(getData.Cells[8].Value);
+            viewLoans.lblInterestRate.Text = Convert.ToString(getData.Cells[6].Value);
+            viewLoans.lblDailyPayment.Text = Convert.ToString(getData.Cells[7].Value);
+            viewLoans.lblBalance.Text = Convert.ToString(getData.Cells[9].Value);
+            viewLoans.lblDateBorrowed.Text = Convert.ToString(getData.Cells[10].Value).Substring(0, 10);
+            viewLoans.lblDueDate.Text = Convert.ToString(getData.Cells[11].Value).Substring(0, 10);
             
 
             //shows the edit form
@@ -199,10 +219,8 @@ namespace Loan_Management_App
             {
                 //Open Connection
                 con.Open();
-                string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.borrowerID as BorrowerID,borrower.firstName as 'First Name', borrower.lastName as 'Last Name', borrower.middleName as " +
-                    "'Middle Name', loans.amount as 'Amount', loans.duration as 'Duration',loans.daysRemaining as 'Days Remaining',loans.interest as 'Interest',loans.dailyPayment as " +
-                    "'Daily Payment',loans.balance as 'Balance',loans.dateBorrow as 'Date Borrowed', loans.duedate as 'Due Date' from borrower," +
-                    "loans where borrower.borrowerID = loans.borrowerID AND duedate < CURDATE();";
+                string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name', loans.balance as 'Balance' from borrower," +
+                    "loans where borrower.borrowerID = loans.borrowerID AND duedate < CURDATE() AND loans.balance != 0;";
                 adp = new MySqlDataAdapter(dataTable, con);
                 DataTable dtable = new DataTable();
                 adp.Fill(dtable);
@@ -214,7 +232,7 @@ namespace Loan_Management_App
             }
             catch
             {
-                MessageBox.Show("Action Cannot Be Processed!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 con.Close();
             }
 
@@ -240,7 +258,16 @@ namespace Loan_Management_App
                     ExcelApp.Application.Workbooks.Add(Type.Missing);
 
                     //Change properties of the workbook
-                    ExcelApp.Columns.ColumnWidth = 20;
+                    //Change Column Width
+                    ExcelApp.Columns.ColumnWidth = 17;
+                    //Change Font Size
+                    ExcelApp.Rows.Style.Font.Size = 14;
+
+                    //Alignment Center
+                    ExcelApp.Rows.HorizontalAlignment = -4108;
+                    ExcelApp.Rows.VerticalAlignment = -4108;
+
+                    ExcelApp.Rows.Worksheet.PageSetup.PrintGridlines = true;
 
                     //Storing header Part in Excel
                     for (int i = 1; i < dataGridViewLoans.Columns.Count + 1; i++)
@@ -289,6 +316,126 @@ namespace Loan_Management_App
                 MessageBox.Show("Marking Data Error!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void dataGridViewLoans_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dataGridViewLoans.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.MediumPurple;
+                dataGridViewLoans.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+            }
+        }
+
+        private void dataGridViewLoans_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dataGridViewLoans.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                dataGridViewLoans.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+            }
+        }
+
+        private void dataGridViewLoans_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+        }
+
+        private void btnRecordPerCollector_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (collector.Text == "")
+                {
+                    MessageBox.Show("Dont Leave the Collector Name Empty!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (collector.Text == "MARLON")
+                {
+                    //Open Connection
+                    con.Open();
+                    string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as " +
+                        "'Last Name',loans.dailyPayment as 'Daily Payment' from borrower, loans where borrower.borrowerID = loans.borrowerID " +
+                        "AND borrower.collectorInCharge = 'MARLON' AND loans.balance != 0;";
+                    adp = new MySqlDataAdapter(dataTable, con);
+                    DataTable dtable = new DataTable();
+                    adp.Fill(dtable);
+
+                    //fills the datagridview
+                    dataGridViewLoans.DataSource = dtable;
+                    con.Close();
+
+                }
+                else if (collector.Text == "NORMAN")
+                {
+                    //Open Connection
+                    con.Open();
+                    string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name'," +
+                        "loans.dailyPayment as 'Daily Payment' from borrower, loans where borrower.borrowerID = loans.borrowerID AND borrower.collectorInCharge = 'NORMAN'" +
+                        " AND loans.balance != 0;";
+                    adp = new MySqlDataAdapter(dataTable, con);
+                    DataTable dtable = new DataTable();
+                    adp.Fill(dtable);
+
+                    //fills the datagridview
+                    dataGridViewLoans.DataSource = dtable;
+                    
+                    con.Close();
+
+                }
+                else if (collector.Text == "PERMEJO")
+                {
+                    //Open Connection
+                    con.Open();
+                    string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name',loans.dailyPayment as 'Daily Payment'" +
+                        " from borrower, loans where borrower.borrowerID = loans.borrowerID AND borrower.collectorInCharge = 'PERMEJO' AND loans.balance != 0;";
+                    adp = new MySqlDataAdapter(dataTable, con);
+                    DataTable dtable = new DataTable();
+                    adp.Fill(dtable);
+
+                    //fills the datagridview
+                    dataGridViewLoans.DataSource = dtable;
+                    
+                    con.Close();
+
+                }
+                else if (collector.Text == "JOMAR")
+                {
+                    //Open Connection
+                    con.Open();
+                    string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name',loans.dailyPayment as 'Daily Payment' " +
+                        "from borrower, loans where borrower.borrowerID = loans.borrowerID AND borrower.collectorInCharge = 'JOMAR' AND loans.balance != 0;";
+                    adp = new MySqlDataAdapter(dataTable, con);
+                    DataTable dtable = new DataTable();
+                    adp.Fill(dtable);
+
+                    //fills the datagridview
+                    dataGridViewLoans.DataSource = dtable;
+                    
+                    con.Close();
+
+                }
+                else if (collector.Text == "PIDO")
+                {
+                    //Open Connection
+                    con.Open();
+                    string dataTable = "SELECT loans.loanID as 'Loan ID',borrower.firstName as 'First Name', borrower.lastName as 'Last Name',loans.dailyPayment as 'Daily Payment'" +
+                        " from borrower, loans where borrower.borrowerID = loans.borrowerID AND borrower.collectorInCharge = 'PIDO' AND loans.balance != 0;";
+                    adp = new MySqlDataAdapter(dataTable, con);
+                    DataTable dtable = new DataTable();
+                    adp.Fill(dtable);
+
+                    //fills the datagridview
+                    dataGridViewLoans.DataSource = dtable;
+                    
+                    con.Close();
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please Open the XAMPP Connection First!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            
         }
     }
 }

@@ -55,6 +55,7 @@ namespace Loan_Management_App
             this.label2 = new System.Windows.Forms.Label();
             this.lblUpperPortion = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Exit = new FontAwesome.Sharp.IconButton();
             this.lblEditMode = new System.Windows.Forms.Label();
             this.borrowerID = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
@@ -128,10 +129,10 @@ namespace Loan_Management_App
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(157, 27);
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(141, 20);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(177, 32);
+            this.label13.Size = new System.Drawing.Size(221, 41);
             this.label13.TabIndex = 19;
             this.label13.Text = "Loan Overview";
             // 
@@ -181,6 +182,7 @@ namespace Loan_Management_App
             // lblDueDate
             // 
             this.lblDueDate.AutoSize = true;
+            this.lblDueDate.BackColor = System.Drawing.Color.White;
             this.lblDueDate.Font = new System.Drawing.Font("Courier New", 20F, System.Drawing.FontStyle.Bold);
             this.lblDueDate.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblDueDate.Location = new System.Drawing.Point(243, 308);
@@ -192,6 +194,7 @@ namespace Loan_Management_App
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
+            this.lblDuration.BackColor = System.Drawing.Color.White;
             this.lblDuration.Font = new System.Drawing.Font("Courier New", 20F, System.Drawing.FontStyle.Bold);
             this.lblDuration.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblDuration.Location = new System.Drawing.Point(272, 239);
@@ -203,6 +206,7 @@ namespace Loan_Management_App
             // lblTotalPayment
             // 
             this.lblTotalPayment.AutoSize = true;
+            this.lblTotalPayment.BackColor = System.Drawing.Color.White;
             this.lblTotalPayment.Font = new System.Drawing.Font("Courier New", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalPayment.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblTotalPayment.Location = new System.Drawing.Point(272, 169);
@@ -214,6 +218,7 @@ namespace Loan_Management_App
             // lblDailyPayment
             // 
             this.lblDailyPayment.AutoSize = true;
+            this.lblDailyPayment.BackColor = System.Drawing.Color.White;
             this.lblDailyPayment.Font = new System.Drawing.Font("Courier New", 20F, System.Drawing.FontStyle.Bold);
             this.lblDailyPayment.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblDailyPayment.Location = new System.Drawing.Point(272, 94);
@@ -244,14 +249,15 @@ namespace Loan_Management_App
             // 
             this.txtDuationinDays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
             this.txtDuationinDays.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtDuationinDays.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.txtDuationinDays.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.txtDuationinDays.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtDuationinDays.FormattingEnabled = true;
             this.txtDuationinDays.Items.AddRange(new object[] {
             "48",
             "60"});
             this.txtDuationinDays.Location = new System.Drawing.Point(235, 199);
             this.txtDuationinDays.Name = "txtDuationinDays";
-            this.txtDuationinDays.Size = new System.Drawing.Size(169, 36);
+            this.txtDuationinDays.Size = new System.Drawing.Size(169, 45);
             this.txtDuationinDays.TabIndex = 3;
             this.txtDuationinDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDuationinDays_KeyPress);
             // 
@@ -276,33 +282,30 @@ namespace Loan_Management_App
             // txtInterestRate
             // 
             this.txtInterestRate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtInterestRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtInterestRate.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtInterestRate.Location = new System.Drawing.Point(235, 283);
             this.txtInterestRate.Name = "txtInterestRate";
-            this.txtInterestRate.Size = new System.Drawing.Size(169, 36);
+            this.txtInterestRate.Size = new System.Drawing.Size(169, 43);
             this.txtInterestRate.TabIndex = 4;
             this.txtInterestRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInterestRate_KeyPress);
             // 
             // txtAmountLoan
             // 
             this.txtAmountLoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtAmountLoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAmountLoan.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtAmountLoan.Location = new System.Drawing.Point(235, 120);
             this.txtAmountLoan.Name = "txtAmountLoan";
-            this.txtAmountLoan.Size = new System.Drawing.Size(169, 36);
+            this.txtAmountLoan.Size = new System.Drawing.Size(169, 43);
             this.txtAmountLoan.TabIndex = 2;
             this.txtAmountLoan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmountLoan_KeyPress);
             // 
             // txtBorrowerID
             // 
             this.txtBorrowerID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.txtBorrowerID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBorrowerID.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.txtBorrowerID.Location = new System.Drawing.Point(235, 42);
             this.txtBorrowerID.Name = "txtBorrowerID";
-            this.txtBorrowerID.Size = new System.Drawing.Size(169, 36);
+            this.txtBorrowerID.Size = new System.Drawing.Size(169, 43);
             this.txtBorrowerID.TabIndex = 1;
             this.txtBorrowerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBorrowerID_KeyPress);
             // 
@@ -370,12 +373,30 @@ namespace Loan_Management_App
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel1.Controls.Add(this.btn_Exit);
             this.panel1.Controls.Add(this.lblUpperPortion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 50);
             this.panel1.TabIndex = 22;
+            // 
+            // btn_Exit
+            // 
+            this.btn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Exit.FlatAppearance.BorderSize = 0;
+            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exit.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btn_Exit.IconColor = System.Drawing.Color.Black;
+            this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Exit.IconSize = 35;
+            this.btn_Exit.Location = new System.Drawing.Point(953, 6);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(45, 36);
+            this.btn_Exit.TabIndex = 12;
+            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // lblEditMode
             // 
@@ -401,7 +422,7 @@ namespace Loan_Management_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(208)))));
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1010, 539);
             this.Controls.Add(this.borrowerID);
             this.Controls.Add(this.lblEditMode);
@@ -458,5 +479,6 @@ namespace Loan_Management_App
         public System.Windows.Forms.Label borrowerID;
         public System.Windows.Forms.Label lblUpperPortion;
         public System.Windows.Forms.ComboBox txtDuationinDays;
+        private FontAwesome.Sharp.IconButton btn_Exit;
     }
 }

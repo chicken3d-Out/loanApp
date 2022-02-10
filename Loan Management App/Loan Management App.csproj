@@ -107,6 +107,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="duedatebalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="duedatebalance.Designer.cs">
+      <DependentUpon>duedatebalance.cs</DependentUpon>
+    </Compile>
     <Compile Include="loans.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     <Compile Include="ViewLoans.Designer.cs">
       <DependentUpon>ViewLoans.cs</DependentUpon>
     </Compile>
+    <Compile Include="weeklyPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="weeklyPayment.Designer.cs">
+      <DependentUpon>weeklyPayment.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddBorrower.resx">
       <DependentUpon>AddBorrower.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="duedatebalance.resx">
+      <DependentUpon>duedatebalance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loans.resx">
       <DependentUpon>loans.cs</DependentUpon>
@@ -204,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewLoans.resx">
       <DependentUpon>ViewLoans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="weeklyPayment.resx">
+      <DependentUpon>weeklyPayment.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
